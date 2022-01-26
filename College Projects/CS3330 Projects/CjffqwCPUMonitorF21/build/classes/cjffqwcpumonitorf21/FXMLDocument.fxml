@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="stack" prefHeight="800.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cjffqwcpumonitorf21.FXMLDocumentController">
+   <children>
+      <StackPane fx:id="label" layoutX="14.0" layoutY="14.0" prefHeight="361.0" prefWidth="338.0">
+         <children>
+            <ImageView fx:id="dialImageView" fitHeight="363.0" fitWidth="339.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@mygauge.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="handImageView" fitHeight="361.0" fitWidth="343.0" pickOnBounds="true" preserveRatio="true" rotate="-165.0">
+               <image>
+                  <Image url="@hand.png" />
+               </image>
+            </ImageView>
+         </children>
+      </StackPane>
+      <Button fx:id="play" layoutX="12.0" layoutY="406.0" mnemonicParsing="false" onAction="#playAction" prefHeight="50.0" prefWidth="343.0" text="Start" />
+      <Button fx:id="record" layoutX="14.0" layoutY="491.0" mnemonicParsing="false" onAction="#recordAction" prefHeight="50.0" prefWidth="343.0" text="Record" />
+      <TextArea fx:id="textArea" layoutX="14.0" layoutY="574.0" prefHeight="50.0" prefWidth="343.0" text="Usage: %0.00">
+         <font>
+            <Font name="Arial" size="20.0" />
+         </font>
+      </TextArea>
+      <Text fx:id="peakText" layoutX="16.0" layoutY="680.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Peak Usage: %0.00" wrappingWidth="339.0">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Text fx:id="meanText" layoutX="16.0" layoutY="742.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mean Usage %0.00" wrappingWidth="339.0">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Text>
+      <Pane fx:id="pane" layoutX="386.0" layoutY="14.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="252.0" prefWidth="374.0" />
+      <Pane fx:id="pane2" layoutX="386.0" layoutY="400.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="252.0" prefWidth="374.0" />
+   </children>
+</AnchorPane>

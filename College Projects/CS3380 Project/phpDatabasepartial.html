@@ -1,0 +1,3279 @@
+<!DOCTYPE html>
+<html dir="ltr" class="gr__demo_phpmyadmin_net" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex,nofollow">
+  
+  <link rel="icon" href="https://demo.phpmyadmin.net/master-config/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="https://demo.phpmyadmin.net/master-config/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" type="text/css" href="phpDatabasepartial_files/jquery-ui.css">
+  <link rel="stylesheet" type="text/css" href="phpDatabasepartial_files/codemirror.css">
+  <link rel="stylesheet" type="text/css" href="phpDatabasepartial_files/show-hint.css">
+  <link rel="stylesheet" type="text/css" href="phpDatabasepartial_files/lint.css">
+  <link rel="stylesheet" type="text/css" href="phpDatabasepartial_files/theme.css">
+  <title>demo.phpmyadmin.net / phpMyAdmin demo - MySQL / RestaurantScheduler | phpMyAdmin 5.2.0-dev</title>
+    <script async="" src="phpDatabasepartial_files/analytics.js"></script><script data-cfasync="false" type="text/javascript" src="phpDatabasepartial_files/jquery.js"></script>
+  <script data-cfasync="false" type="text/javascript" src="phpDatabasepartial_files/jquery-migrate.js"></script>
+  <script data-cfasync="false" type="text/javascript" src="phpDatabasepartial_files/sprintf.js"></script>
+  <script data-cfasync="false" type="text/javascript" src="phpDatabasepartial_files/ajax.js"></script>
+  <script data-cfasync="false" type="text/javascript" src="phpDatabasepartial_files/keyhandler.js"></script>
+  <script data-cfasync="false" type="text/javascript" src="phpDatabasepartial_files/jquery-ui.js"></script>
+  <script data-cfasync="false" type="text/javascript" src="phpDatabasepartial_files/name-conflict-fixes.js"></script>
+  <script data-cfasync="false" type="text/javascript" src="phpDatabasepartial_files/bootstrap.js"></script>
+  <script data-cfasync="false" type="text/javascript" src="phpDatabasepartial_files/js.js"></script>
+  <script data-cfasync="false" type="text/javascript" src="phpDatabasepartial_files/jquery_005.js"></script>
+  <script data-cfasync="false" type="text/javascript" src="phpDatabasepartial_files/jquery_003.js"></script>
+  <script data-cfasync="false" type="text/javascript" src="phpDatabasepartial_files/jquery-ui-timepicker-addon.js"></script>
+  <script data-cfasync="false" type="text/javascript" src="phpDatabasepartial_files/jquery_004.js"></script>
+  <script data-cfasync="false" type="text/javascript" src="phpDatabasepartial_files/menu_resizer.js"></script>
+  <script data-cfasync="false" type="text/javascript" src="phpDatabasepartial_files/cross_framing_protection.js"></script>
+  <script data-cfasync="false" type="text/javascript" src="phpDatabasepartial_files/tracekit.js"></script>
+  <script data-cfasync="false" type="text/javascript" src="phpDatabasepartial_files/error_report.js"></script>
+  <script data-cfasync="false" type="text/javascript" src="phpDatabasepartial_files/messages.php"></script>
+  <script data-cfasync="false" type="text/javascript" src="phpDatabasepartial_files/config.js"></script>
+  <script data-cfasync="false" type="text/javascript" src="phpDatabasepartial_files/doclinks.js"></script>
+  <script data-cfasync="false" type="text/javascript" src="phpDatabasepartial_files/functions.js"></script>
+  <script data-cfasync="false" type="text/javascript" src="phpDatabasepartial_files/navigation.js"></script>
+  <script data-cfasync="false" type="text/javascript" src="phpDatabasepartial_files/indexes.js"></script>
+  <script data-cfasync="false" type="text/javascript" src="phpDatabasepartial_files/common.js"></script>
+  <script data-cfasync="false" type="text/javascript" src="phpDatabasepartial_files/page_settings.js"></script>
+  <script data-cfasync="false" type="text/javascript" src="phpDatabasepartial_files/drag_drop_import.js"></script>
+  <script data-cfasync="false" type="text/javascript" src="phpDatabasepartial_files/shortcuts_handler.js"></script>
+  <script data-cfasync="false" type="text/javascript" src="phpDatabasepartial_files/home.js"></script>
+  <script data-cfasync="false" type="text/javascript" src="phpDatabasepartial_files/codemirror.js"></script>
+  <script data-cfasync="false" type="text/javascript" src="phpDatabasepartial_files/sql_002.js"></script>
+  <script data-cfasync="false" type="text/javascript" src="phpDatabasepartial_files/runmode.js"></script>
+  <script data-cfasync="false" type="text/javascript" src="phpDatabasepartial_files/show-hint.js"></script>
+  <script data-cfasync="false" type="text/javascript" src="phpDatabasepartial_files/sql-hint.js"></script>
+  <script data-cfasync="false" type="text/javascript" src="phpDatabasepartial_files/lint.js"></script>
+  <script data-cfasync="false" type="text/javascript" src="phpDatabasepartial_files/sql-lint.js"></script>
+  <script data-cfasync="false" type="text/javascript" src="phpDatabasepartial_files/console.js"></script>
+
+<script data-cfasync="false" type="text/javascript">
+// <![CDATA[
+var firstDayOfCalendar = '0';
+var themeImagePath = '.\/themes\/pmahomme\/img\/';
+var mysqlDocTemplate = '.\/url.php\u003Furl\u003Dhttps\u00253A\u00252F\u00252Fdev.mysql.com\u00252Fdoc\u00252Frefman\u00252F8.0\u00252Fen\u00252F\u002525s.html';
+var maxInputVars = 1000;
+
+if ($.datepicker) {
+  $.datepicker.regional[''].closeText = 'Done';
+  $.datepicker.regional[''].prevText = 'Prev';
+  $.datepicker.regional[''].nextText = 'Next';
+  $.datepicker.regional[''].currentText = 'Today';
+  $.datepicker.regional[''].monthNames = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+  $.datepicker.regional[''].monthNamesShort = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ];
+  $.datepicker.regional[''].dayNames = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+  ];
+  $.datepicker.regional[''].dayNamesShort = [
+    'Sun',
+    'Mon',
+    'Tue',
+    'Wed',
+    'Thu',
+    'Fri',
+    'Sat',
+  ];
+  $.datepicker.regional[''].dayNamesMin = [
+    'Su',
+    'Mo',
+    'Tu',
+    'We',
+    'Th',
+    'Fr',
+    'Sa',
+  ];
+  $.datepicker.regional[''].weekHeader = 'Wk';
+  $.datepicker.regional[''].showMonthAfterYear = false;
+  $.datepicker.regional[''].yearSuffix = '';
+  $.extend($.datepicker._defaults, $.datepicker.regional['']);
+}
+
+if ($.timepicker) {
+  $.timepicker.regional[''].timeText = 'Time';
+  $.timepicker.regional[''].hourText = 'Hour';
+  $.timepicker.regional[''].minuteText = 'Minute';
+  $.timepicker.regional[''].secondText = 'Second';
+  $.extend($.timepicker._defaults, $.timepicker.regional['']);
+}
+
+function extendingValidatorMessages () {
+  $.extend($.validator.messages, {
+    required: 'This\u0020field\u0020is\u0020required',
+    remote: 'Please\u0020fix\u0020this\u0020field',
+    email: 'Please\u0020enter\u0020a\u0020valid\u0020email\u0020address',
+    url: 'Please\u0020enter\u0020a\u0020valid\u0020URL',
+    date: 'Please\u0020enter\u0020a\u0020valid\u0020date',
+    dateISO: 'Please\u0020enter\u0020a\u0020valid\u0020date\u0020\u0028\u0020ISO\u0020\u0029',
+    number: 'Please\u0020enter\u0020a\u0020valid\u0020number',
+    creditcard: 'Please\u0020enter\u0020a\u0020valid\u0020credit\u0020card\u0020number',
+    digits: 'Please\u0020enter\u0020only\u0020digits',
+    equalTo: 'Please\u0020enter\u0020the\u0020same\u0020value\u0020again',
+    maxlength: $.validator.format('Please\u0020enter\u0020no\u0020more\u0020than\u0020\u007B0\u007D\u0020characters'),
+    minlength: $.validator.format('Please\u0020enter\u0020at\u0020least\u0020\u007B0\u007D\u0020characters'),
+    rangelength: $.validator.format('Please\u0020enter\u0020a\u0020value\u0020between\u0020\u007B0\u007D\u0020and\u0020\u007B1\u007D\u0020characters\u0020long'),
+    range: $.validator.format('Please\u0020enter\u0020a\u0020value\u0020between\u0020\u007B0\u007D\u0020and\u0020\u007B1\u007D'),
+    max: $.validator.format('Please\u0020enter\u0020a\u0020value\u0020less\u0020than\u0020or\u0020equal\u0020to\u0020\u007B0\u007D'),
+    min: $.validator.format('Please\u0020enter\u0020a\u0020value\u0020greater\u0020than\u0020or\u0020equal\u0020to\u0020\u007B0\u007D'),
+    validationFunctionForDateTime: $.validator.format('Please\u0020enter\u0020a\u0020valid\u0020date\u0020or\u0020time'),
+    validationFunctionForHex: $.validator.format('Please\u0020enter\u0020a\u0020valid\u0020HEX\u0020input'),
+    validationFunctionForMd5: $.validator.format('This\u0020column\u0020can\u0020not\u0020contain\u0020a\u002032\u0020chars\u0020value'),
+    validationFunctionForAesDesEncrypt: $.validator.format('These\u0020functions\u0020are\u0020meant\u0020to\u0020return\u0020a\u0020binary\u0020result\u003B\u0020to\u0020avoid\u0020inconsistent\u0020results\u0020you\u0020should\u0020store\u0020it\u0020in\u0020a\u0020BINARY,\u0020VARBINARY,\u0020or\u0020BLOB\u0020column.')
+  });
+}
+
+CommonParams.setAll({common_query:"",opendb_url:"index.php?route=/database/structure",lang:"en",server:"2",table:"",db:"",token:"343b287a7338607b475842686271745d",text_dir:"ltr",LimitChars:"50",pftext:"P",confirm:true,LoginCookieValidity:"1440",session_gc_maxlifetime:"1440",logged_in:true,is_https:true,rootPath:"/master-config/",arg_separator:"&",version:"5.2.0-dev",auth_type:"config",user:"root"});
+ConsoleEnterExecutes=false
+
+AJAX.scriptHandler
+  .add('vendor/jquery/jquery.min.js', 0)
+  .add('vendor/jquery/jquery-migrate.js', 0)
+  .add('vendor/sprintf.js', 1)
+  .add('ajax.js', 0)
+  .add('keyhandler.js', 1)
+  .add('vendor/jquery/jquery-ui.min.js', 0)
+  .add('name-conflict-fixes.js', 1)
+  .add('vendor/bootstrap/bootstrap.bundle.min.js', 1)
+  .add('vendor/js.cookie.js', 1)
+  .add('vendor/jquery/jquery.mousewheel.js', 0)
+  .add('vendor/jquery/jquery.validate.js', 0)
+  .add('vendor/jquery/jquery-ui-timepicker-addon.js', 0)
+  .add('vendor/jquery/jquery.debounce-1.0.6.js', 0)
+  .add('menu_resizer.js', 1)
+  .add('cross_framing_protection.js', 0)
+  .add('vendor/tracekit.js', 1)
+  .add('error_report.js', 1)
+  .add('messages.php', 0)
+  .add('config.js', 1)
+  .add('doclinks.js', 1)
+  .add('functions.js', 1)
+  .add('navigation.js', 1)
+  .add('indexes.js', 1)
+  .add('common.js', 1)
+  .add('page_settings.js', 1)
+  .add('drag_drop_import.js', 1)
+  .add('shortcuts_handler.js', 1)
+  .add('home.js', 1)
+  .add('vendor/codemirror/lib/codemirror.js', 0)
+  .add('vendor/codemirror/mode/sql/sql.js', 0)
+  .add('vendor/codemirror/addon/runmode/runmode.js', 0)
+  .add('vendor/codemirror/addon/hint/show-hint.js', 0)
+  .add('vendor/codemirror/addon/hint/sql-hint.js', 0)
+  .add('vendor/codemirror/addon/lint/lint.js', 0)
+  .add('codemirror/addon/lint/sql-lint.js', 0)
+  .add('console.js', 1)
+;
+$(function() {
+        AJAX.fireOnload('vendor/sprintf.js');
+        AJAX.fireOnload('keyhandler.js');
+        AJAX.fireOnload('name-conflict-fixes.js');
+      AJAX.fireOnload('vendor/bootstrap/bootstrap.bundle.min.js');
+      AJAX.fireOnload('vendor/js.cookie.js');
+              AJAX.fireOnload('menu_resizer.js');
+        AJAX.fireOnload('vendor/tracekit.js');
+      AJAX.fireOnload('error_report.js');
+        AJAX.fireOnload('config.js');
+      AJAX.fireOnload('doclinks.js');
+      AJAX.fireOnload('functions.js');
+      AJAX.fireOnload('navigation.js');
+      AJAX.fireOnload('indexes.js');
+      AJAX.fireOnload('common.js');
+      AJAX.fireOnload('page_settings.js');
+      AJAX.fireOnload('drag_drop_import.js');
+      AJAX.fireOnload('shortcuts_handler.js');
+      AJAX.fireOnload('home.js');
+                    AJAX.fireOnload('console.js');
+  });
+// ]]>
+</script>
+
+  <noscript><style>html{display:block}</style></noscript>
+<script type="text/javascript" src="phpDatabasepartial_files/databases.js"></script><script type="text/javascript" src="phpDatabasepartial_files/structure.js"></script><script type="text/javascript" src="phpDatabasepartial_files/change.js"></script><script type="text/javascript" src="phpDatabasepartial_files/makegrid.js"></script><script type="text/javascript" src="phpDatabasepartial_files/jquery_002.js"></script><script type="text/javascript" src="phpDatabasepartial_files/stickyfill.js"></script><script type="text/javascript" src="phpDatabasepartial_files/sql.js"></script></head>
+<body data-gr-c-s-loaded="true" style="margin-bottom: 21.8833px; margin-left: 240px; padding-top: 59.3667px;">
+    <div id="pma_navigation" class="d-print-none" data-config-navigation-width="240" style="width: 240px;">
+    <div id="pma_navigation_resizer" style="left: 240px; width: 3px;"></div>
+    <div id="pma_navigation_collapser" style="left: 240px;" title="Hide panel">←</div>
+    <div id="pma_navigation_content">
+      <div id="pma_navigation_header">
+
+                  <div id="pmalogo">
+                          <a href="https://demo.phpmyadmin.net/master-config/index.php">
+                                      <img id="imgpmalogo" src="phpDatabasepartial_files/logo_left.png" alt="phpMyAdmin">
+                                      </a>
+                      </div>
+        
+        <div id="navipanellinks">
+          <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/" title="Home"><img src="phpDatabasepartial_files/dot.gif" title="Home" alt="Home" class="icon ic_b_home"></a>
+
+                      <a class="logout disableAjax" href="https://demo.phpmyadmin.net/master-config/index.php?route=/logout" title="Empty session data"><img src="phpDatabasepartial_files/dot.gif" title="Empty session data" alt="Empty session data" class="icon ic_s_loggoff"></a>
+          
+          <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Findex.html" title="phpMyAdmin documentation" target="_blank" rel="noopener noreferrer"><img src="phpDatabasepartial_files/dot.gif" title="phpMyAdmin documentation" alt="phpMyAdmin documentation" class="icon ic_b_docs"></a>
+
+          <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F8.0%2Fen%2Findex.html" title="MySQL Documentation" target="_blank" rel="noopener noreferrer"><img src="phpDatabasepartial_files/dot.gif" title="MySQL Documentation" alt="MySQL Documentation" class="icon ic_b_sqlhelp"></a>
+
+          <a id="pma_navigation_settings_icon" href="#" title="Navigation panel settings"><img src="phpDatabasepartial_files/dot.gif" title="Navigation panel settings" alt="Navigation panel settings" class="icon ic_s_cog"></a>
+
+          <a id="pma_navigation_reload" href="#" title="Reload navigation panel"><img src="phpDatabasepartial_files/dot.gif" title="Reload navigation panel" alt="Reload navigation panel" class="icon ic_s_reload"></a>
+        </div>
+
+                  <div id="serverChoice">
+                <form class="disableAjax" method="post" action="index.php?route=/">
+                <input type="hidden" name="token" value="343b287a7338607b475842686271745d">
+        <label for="select_server">Current server:</label>
+        <select id="select_server" class="autosubmit" name="server">
+            <option value="">(Servers) ...</option>
+                <option value="1">phpMyAdmin demo - MariaDB  (root)</option>
+    <option value="2" selected="selected">phpMyAdmin demo - MySQL  (root)</option>
+        </select>
+            </form>
+
+          </div>
+        
+        <img src="phpDatabasepartial_files/dot.gif" title="Loading…" alt="Loading…" style="visibility: hidden; display:none" class="icon ic_ajax_clock_small throbber">
+      </div>
+      <div id="pma_navigation_tree" class="list_container synced highlight autoexpand" style="height: 622.033px;">
+  <div class="pma_quick_warp">
+    <div class="drop_list"><button title="Recent tables" class="drop_button btn">Recent</button><ul id="pma_recent_list"><li class="warp_link">
+  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/table/recent-favorite&amp;db=RestaurantScheduler&amp;table=Employees">
+    `RestaurantScheduler`.`Employees`
+  </a>
+</li>
+</ul></div>    <div class="drop_list"><button title="Favorite tables" class="drop_button btn">Favorites</button><ul id="pma_favorite_list"><li class="warp_link">
+            There are no favorite tables.    </li>
+</ul></div>    <div class="clearfloat"></div>
+</div>
+
+
+<div class="clearfloat"></div>
+
+<ul>
+      <li class="fast_filter db_fast_filter">
+        <form class="ajax fast_filter">
+            <input type="hidden" name="pos" value="0"><input type="hidden" name="token" value="343b287a7338607b475842686271745d">
+            <div class="input-group">
+              <input class="searchClause form-control" type="text" name="searchClause" accesskey="q" aria-label="Type to filter these, Enter to search all" placeholder="Type to filter these, Enter to search all">
+              <button class="btn btn-outline-secondary searchClauseClear" type="button" aria-label="Clear fast filter">X</button>
+            </div>
+        </form>
+    </li>
+
+  <!-- CONTROLS START -->
+<li id="navigation_controls_outer">
+    <div id="navigation_controls">
+        <a href="#" id="pma_navigation_collapse" title="Collapse all"><img src="phpDatabasepartial_files/dot.gif" title="Collapse all" alt="Collapse all" class="icon ic_s_collapseall"></a>
+        <a href="#" id="pma_navigation_sync" title="Unlink from main panel"><img src="phpDatabasepartial_files/dot.gif" title="Unlink from main panel" alt="Unlink from main panel" class="icon ic_s_link"></a>
+    </div>
+</li>
+<!-- CONTROLS ENDS -->
+
+</ul>
+
+
+
+<div id="pma_navigation_tree_content" style="height: 544.1px;">
+  <ul>
+      <li class="first new_database italics">
+    <div class="block">
+      <i class="first"></i>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/server/databases"><img src="phpDatabasepartial_files/dot.gif" title="New" alt="New" class="icon ic_b_newdb"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/server/databases" title="New">New</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+  <li class="database">
+    <div class="block">
+      <i></i>
+              <b></b>
+        <a class="expander" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.YWRyZXNkYg==" data-vpath="cm9vdA==.YWRyZXNkYg==" data-pos="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/operations&amp;db=adresdb"><img src="phpDatabasepartial_files/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/structure&amp;db=adresdb" title="Structure">adresdb</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+  <li class="database">
+    <div class="block">
+      <i></i>
+              <b></b>
+        <a class="expander" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.aW5mb3JtYXRpb25fc2NoZW1h" data-vpath="cm9vdA==.aW5mb3JtYXRpb25fc2NoZW1h" data-pos="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/operations&amp;db=information_schema"><img src="phpDatabasepartial_files/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/structure&amp;db=information_schema" title="Structure">information_schema</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+  <li class="database">
+    <div class="block">
+      <i></i>
+              <b></b>
+        <a class="expander" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.bXlzcWw=" data-vpath="cm9vdA==.bXlzcWw=" data-pos="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/operations&amp;db=mysql"><img src="phpDatabasepartial_files/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/structure&amp;db=mysql" title="Structure">mysql</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+  <li class="database">
+    <div class="block">
+      <i></i>
+              <b></b>
+        <a class="expander" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.cGVyZm9ybWFuY2Vfc2NoZW1h" data-vpath="cm9vdA==.cGVyZm9ybWFuY2Vfc2NoZW1h" data-pos="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/operations&amp;db=performance_schema"><img src="phpDatabasepartial_files/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/structure&amp;db=performance_schema" title="Structure">performance_schema</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+  <li class="database">
+    <div class="block">
+      <i></i>
+              <b></b>
+        <a class="expander" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.UG9ydGZvbGlvX01hcmN1cw==" data-vpath="cm9vdA==.UG9ydGZvbGlvX01hcmN1cw==" data-pos="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/operations&amp;db=Portfolio_Marcus"><img src="phpDatabasepartial_files/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/structure&amp;db=Portfolio_Marcus" title="Structure">Portfolio_Marcus</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+  <li class="database">
+    <div class="block">
+      <i></i>
+              <b></b>
+        <a class="expander" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.UFJVRUJB" data-vpath="cm9vdA==.UFJVRUJB" data-pos="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/operations&amp;db=PRUEBA"><img src="phpDatabasepartial_files/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/structure&amp;db=PRUEBA" title="Structure">PRUEBA</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+  <li class="database">
+    <div class="block">
+      <i></i>
+              <b></b>
+        <a class="expander" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.cHc=" data-vpath="cm9vdA==.cHc=" data-pos="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/operations&amp;db=pw"><img src="phpDatabasepartial_files/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/structure&amp;db=pw" title="Structure">pw</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+  <li class="database">
+    <div class="block">
+      <i></i>
+              <b></b>
+        <a class="expander" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.UkVQRVJUT1JJTw==" data-vpath="cm9vdA==.UkVQRVJUT1JJTw==" data-pos="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/operations&amp;db=REPERTORIO"><img src="phpDatabasepartial_files/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/structure&amp;db=REPERTORIO" title="Structure">REPERTORIO</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+  <li class="database selected">
+    <div class="block">
+      <i></i>
+              <b></b>
+        <a class="expander loaded" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.UmVzdGF1cmFudFNjaGVkdWxlcg==" data-vpath="cm9vdA==.UmVzdGF1cmFudFNjaGVkdWxlcg==" data-pos="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="" alt="" class="icon ic_b_minus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/operations&amp;db=RestaurantScheduler"><img src="phpDatabasepartial_files/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/structure&amp;db=RestaurantScheduler" title="Structure">RestaurantScheduler</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+  <div class="list_container">
+    <ul>
+  <span class="hide pos2_nav" data-name="tables" data-value="0"></span>
+
+  <li class="new_table italics new_table italics">
+    <div class="block">
+      <i></i>
+              <span class="hide pos2_nav" data-name="tables" data-value="0"></span>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/table/create&amp;db=RestaurantScheduler"><img src="phpDatabasepartial_files/dot.gif" title="New" alt="New" class="icon ic_b_table_add"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/table/create&amp;db=RestaurantScheduler" title="New">New</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+  <li class="table table">
+    <div class="block">
+      <i></i>
+              <b></b>
+        <a class="expander" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.UmVzdGF1cmFudFNjaGVkdWxlcg==.dGFibGVz.RW1lcmdlbmN5Q29udGFjdA==" data-vpath="cm9vdA==.UmVzdGF1cmFudFNjaGVkdWxlcg==.VGFibGVz.RW1lcmdlbmN5Q29udGFjdA==" data-pos="0"></span>
+                      <span class="hide pos2_nav" data-name="tables" data-value="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/table/structure&amp;db=RestaurantScheduler&amp;table=EmergencyContact"><img src="phpDatabasepartial_files/dot.gif" title="Structure" alt="Structure" class="icon ic_b_props"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/sql&amp;pos=0&amp;db=RestaurantScheduler&amp;table=EmergencyContact" title="Browse">EmergencyContact</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+  <li class="table table">
+    <div class="block">
+      <i></i>
+              <b></b>
+        <a class="expander" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.UmVzdGF1cmFudFNjaGVkdWxlcg==.dGFibGVz.RW1wbG95ZWVz" data-vpath="cm9vdA==.UmVzdGF1cmFudFNjaGVkdWxlcg==.VGFibGVz.RW1wbG95ZWVz" data-pos="0"></span>
+                      <span class="hide pos2_nav" data-name="tables" data-value="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/table/structure&amp;db=RestaurantScheduler&amp;table=Employees"><img src="phpDatabasepartial_files/dot.gif" title="Structure" alt="Structure" class="icon ic_b_props"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/sql&amp;pos=0&amp;db=RestaurantScheduler&amp;table=Employees" title="Browse">Employees</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+  <li class="table table">
+    <div class="block">
+      <i></i>
+              <b></b>
+        <a class="expander" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.UmVzdGF1cmFudFNjaGVkdWxlcg==.dGFibGVz.TWFuYWdlcg==" data-vpath="cm9vdA==.UmVzdGF1cmFudFNjaGVkdWxlcg==.VGFibGVz.TWFuYWdlcg==" data-pos="0"></span>
+                      <span class="hide pos2_nav" data-name="tables" data-value="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/table/structure&amp;db=RestaurantScheduler&amp;table=Manager"><img src="phpDatabasepartial_files/dot.gif" title="Structure" alt="Structure" class="icon ic_b_props"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/sql&amp;pos=0&amp;db=RestaurantScheduler&amp;table=Manager" title="Browse">Manager</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+  <li class="table table">
+    <div class="block">
+      <i></i>
+              <b></b>
+        <a class="expander" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.UmVzdGF1cmFudFNjaGVkdWxlcg==.dGFibGVz.U2NoZWR1bGVz" data-vpath="cm9vdA==.UmVzdGF1cmFudFNjaGVkdWxlcg==.VGFibGVz.U2NoZWR1bGVz" data-pos="0"></span>
+                      <span class="hide pos2_nav" data-name="tables" data-value="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/table/structure&amp;db=RestaurantScheduler&amp;table=Schedules"><img src="phpDatabasepartial_files/dot.gif" title="Structure" alt="Structure" class="icon ic_b_props"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/sql&amp;pos=0&amp;db=RestaurantScheduler&amp;table=Schedules" title="Browse">Schedules</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+  <li class="table last table">
+    <div class="block">
+      <i></i>
+              
+        <a class="expander" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.UmVzdGF1cmFudFNjaGVkdWxlcg==.dGFibGVz.V29ya1Byb2ZpbGVz" data-vpath="cm9vdA==.UmVzdGF1cmFudFNjaGVkdWxlcg==.VGFibGVz.V29ya1Byb2ZpbGVz" data-pos="0"></span>
+                      <span class="hide pos2_nav" data-name="tables" data-value="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/table/structure&amp;db=RestaurantScheduler&amp;table=WorkProfiles"><img src="phpDatabasepartial_files/dot.gif" title="Structure" alt="Structure" class="icon ic_b_props"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/sql&amp;pos=0&amp;db=RestaurantScheduler&amp;table=WorkProfiles" title="Browse">WorkProfiles</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+
+
+
+    </ul>
+  </div>
+
+  </li>
+  <li class="database">
+    <div class="block">
+      <i></i>
+              <b></b>
+        <a class="expander" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.c2FraWxh" data-vpath="cm9vdA==.c2FraWxh" data-pos="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/operations&amp;db=sakila"><img src="phpDatabasepartial_files/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/structure&amp;db=sakila" title="Structure">sakila</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+  <li class="database">
+    <div class="block">
+      <i></i>
+              <b></b>
+        <a class="expander" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.c2VydmVydXdlYmNvQnJlc3NvbGlh" data-vpath="cm9vdA==.c2VydmVydXdlYmNvQnJlc3NvbGlh" data-pos="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/operations&amp;db=serveruwebcoBressolia"><img src="phpDatabasepartial_files/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/structure&amp;db=serveruwebcoBressolia" title="Structure">serveruwebcoBressolia</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+  <li class="database">
+    <div class="block">
+      <i></i>
+              <b></b>
+        <a class="expander" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.c2hvZV9kYg==" data-vpath="cm9vdA==.c2hvZV9kYg==" data-pos="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/operations&amp;db=shoe_db"><img src="phpDatabasepartial_files/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/structure&amp;db=shoe_db" title="Structure">shoe_db</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+  <li class="database">
+    <div class="block">
+      <i></i>
+              <b></b>
+        <a class="expander" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.c2tsZXBTZXJvaGVua28=" data-vpath="cm9vdA==.c2tsZXBTZXJvaGVua28=" data-pos="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/operations&amp;db=sklepSerohenko"><img src="phpDatabasepartial_files/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/structure&amp;db=sklepSerohenko" title="Structure">sklepSerohenko</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+  <li class="database">
+    <div class="block">
+      <i></i>
+              <b></b>
+        <a class="expander" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.c2t1" data-vpath="cm9vdA==.c2t1" data-pos="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/operations&amp;db=sku"><img src="phpDatabasepartial_files/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/structure&amp;db=sku" title="Structure">sku</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+  <li class="database">
+    <div class="block">
+      <i></i>
+              <b></b>
+        <a class="expander" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.U3RkTWREQg==" data-vpath="cm9vdA==.U3RkTWREQg==" data-pos="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/operations&amp;db=StdMdDB"><img src="phpDatabasepartial_files/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/structure&amp;db=StdMdDB" title="Structure">StdMdDB</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+  <li class="database">
+    <div class="block">
+      <i></i>
+              <b></b>
+        <a class="expander" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.U3RlZmFubw==" data-vpath="cm9vdA==.U3RlZmFubw==" data-pos="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/operations&amp;db=Stefano"><img src="phpDatabasepartial_files/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/structure&amp;db=Stefano" title="Structure">Stefano</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+  <li class="database">
+    <div class="block">
+      <i></i>
+              <b></b>
+        <a class="expander" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.c3R1ZGVudHM=" data-vpath="cm9vdA==.c3R1ZGVudHM=" data-pos="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/operations&amp;db=students"><img src="phpDatabasepartial_files/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/structure&amp;db=students" title="Structure">students</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+  <li class="database">
+    <div class="block">
+      <i></i>
+              <b></b>
+        <a class="expander" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.c3R1ZGVudHMgMjAyMA==" data-vpath="cm9vdA==.c3R1ZGVudHMgMjAyMA==" data-pos="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/operations&amp;db=students+2020"><img src="phpDatabasepartial_files/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/structure&amp;db=students+2020" title="Structure">students 2020</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+  <li class="database">
+    <div class="block">
+      <i></i>
+              <b></b>
+        <a class="expander" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.c3VwZXJwb3M=" data-vpath="cm9vdA==.c3VwZXJwb3M=" data-pos="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/operations&amp;db=superpos"><img src="phpDatabasepartial_files/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/structure&amp;db=superpos" title="Structure">superpos</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+  <li class="database">
+    <div class="block">
+      <i></i>
+              <b></b>
+        <a class="expander" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.c3lz" data-vpath="cm9vdA==.c3lz" data-pos="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/operations&amp;db=sys"><img src="phpDatabasepartial_files/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/structure&amp;db=sys" title="Structure">sys</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+  <li class="database">
+    <div class="block">
+      <i></i>
+              <b></b>
+        <a class="expander" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.dGFibGU=" data-vpath="cm9vdA==.dGFibGU=" data-pos="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/operations&amp;db=table"><img src="phpDatabasepartial_files/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/structure&amp;db=table" title="Structure">table</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+  <li class="database">
+    <div class="block">
+      <i></i>
+              <b></b>
+        <a class="expander" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.VGFibGVfaW5zZXJ0aW9u" data-vpath="cm9vdA==.VGFibGVfaW5zZXJ0aW9u" data-pos="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/operations&amp;db=Table_insertion"><img src="phpDatabasepartial_files/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/structure&amp;db=Table_insertion" title="Structure">Table_insertion</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+  <li class="database">
+    <div class="block">
+      <i></i>
+              <b></b>
+        <a class="expander" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.dGI=" data-vpath="cm9vdA==.dGI=" data-pos="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/operations&amp;db=tb"><img src="phpDatabasepartial_files/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/structure&amp;db=tb" title="Structure">tb</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+  <li class="database">
+    <div class="block">
+      <i></i>
+              <b></b>
+        <a class="expander" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.dGVzdDE5" data-vpath="cm9vdA==.dGVzdDE5" data-pos="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/operations&amp;db=test19"><img src="phpDatabasepartial_files/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/structure&amp;db=test19" title="Structure">test19</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+  <li class="database">
+    <div class="block">
+      <i></i>
+              <b></b>
+        <a class="expander" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.dGVzdGVfdGVzdGU=" data-vpath="cm9vdA==.dGVzdGVfdGVzdGU=" data-pos="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/operations&amp;db=teste_teste"><img src="phpDatabasepartial_files/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/structure&amp;db=teste_teste" title="Structure">teste_teste</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+  <li class="database">
+    <div class="block">
+      <i></i>
+              <b></b>
+        <a class="expander" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.VGxhcGFsZXJpYU1hbGZveQ==" data-vpath="cm9vdA==.VGxhcGFsZXJpYU1hbGZveQ==" data-pos="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/operations&amp;db=TlapaleriaMalfoy"><img src="phpDatabasepartial_files/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/structure&amp;db=TlapaleriaMalfoy" title="Structure">TlapaleriaMalfoy</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+  <li class="database">
+    <div class="block">
+      <i></i>
+              <b></b>
+        <a class="expander" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.VHJpY2t5c29sbw==" data-vpath="cm9vdA==.VHJpY2t5c29sbw==" data-pos="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/operations&amp;db=Trickysolo"><img src="phpDatabasepartial_files/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/structure&amp;db=Trickysolo" title="Structure">Trickysolo</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+  <li class="database">
+    <div class="block">
+      <i></i>
+              <b></b>
+        <a class="expander" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.dmVkZXR0ZmFr" data-vpath="cm9vdA==.dmVkZXR0ZmFr" data-pos="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/operations&amp;db=vedettfak"><img src="phpDatabasepartial_files/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/structure&amp;db=vedettfak" title="Structure">vedettfak</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+  <li class="database">
+    <div class="block">
+      <i></i>
+              <b></b>
+        <a class="expander" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.dmljdG9yeSAyMDIw" data-vpath="cm9vdA==.dmljdG9yeSAyMDIw" data-pos="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/operations&amp;db=victory+2020"><img src="phpDatabasepartial_files/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/structure&amp;db=victory+2020" title="Structure">victory 2020</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+  <li class="database">
+    <div class="block">
+      <i></i>
+              <b></b>
+        <a class="expander" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.d2lzZWRi" data-vpath="cm9vdA==.d2lzZWRi" data-pos="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/operations&amp;db=wisedb"><img src="phpDatabasepartial_files/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/structure&amp;db=wisedb" title="Structure">wisedb</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+  <li class="database">
+    <div class="block">
+      <i></i>
+              <b></b>
+        <a class="expander" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.d29ybGQ=" data-vpath="cm9vdA==.d29ybGQ=" data-pos="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/operations&amp;db=world"><img src="phpDatabasepartial_files/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/structure&amp;db=world" title="Structure">world</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+  <li class="database">
+    <div class="block">
+      <i></i>
+              <b></b>
+        <a class="expander" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.INCe0JHQm9CG0Jog0KLQldCb0JXQpNCe0J3QndCY0KUg0J/QldCg0JXQk9Ce0JLQntCg0IbQkg==" data-vpath="cm9vdA==.INCe0JHQm9CG0Jog0KLQldCb0JXQpNCe0J3QndCY0KUg0J/QldCg0JXQk9Ce0JLQntCg0IbQkg==" data-pos="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/operations&amp;db=+%D0%9E%D0%91%D0%9B%D0%86%D0%9A+%D0%A2%D0%95%D0%9B%D0%95%D0%A4%D0%9E%D0%9D%D0%9D%D0%98%D0%A5+%D0%9F%D0%95%D0%A0%D0%95%D0%93%D0%9E%D0%92%D0%9E%D0%A0%D0%86%D0%92"><img src="phpDatabasepartial_files/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/structure&amp;db=+%D0%9E%D0%91%D0%9B%D0%86%D0%9A+%D0%A2%D0%95%D0%9B%D0%95%D0%A4%D0%9E%D0%9D%D0%9D%D0%98%D0%A5+%D0%9F%D0%95%D0%A0%D0%95%D0%93%D0%9E%D0%92%D0%9E%D0%A0%D0%86%D0%92" title="Structure"> ОБЛІК ТЕЛЕФОННИХ ПЕРЕГОВОРІВ</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+  <li class="last database">
+    <div class="block">
+      <i></i>
+              
+        <a class="expander" href="#">
+          <span class="hide paths_nav" data-apath="cm9vdA==.0LDQsA==" data-vpath="cm9vdA==.0LDQsA==" data-pos="0"></span>
+                    <img src="phpDatabasepartial_files/dot.gif" title="Expand/Collapse" alt="Expand/Collapse" class="icon ic_b_plus">
+        </a>
+          </div>
+    
+          <div class="block second">
+                  <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/operations&amp;db=%D0%B0%D0%B0"><img src="phpDatabasepartial_files/dot.gif" title="Database operations" alt="Database operations" class="icon ic_s_db"></a>
+              </div>
+
+              <a class="hover_show_full" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/structure&amp;db=%D0%B0%D0%B0" title="Structure">аа</a>
+          
+    
+
+    
+    <div class="clearfloat"></div>
+
+
+
+  </li>
+
+  </ul>
+</div>
+
+
+</div>
+
+      <div id="pma_navi_settings_container">
+                  <div id="pma_navigation_settings"><div class="page_settings"><form method="post" action="index.php?route=%2Fdatabase%2Fsql&amp;db=RestaurantScheduler&amp;server=2" class="config-form disableAjax">
+  <input type="hidden" name="tab_hash" value="">
+      <input type="hidden" name="check_page_refresh" id="check_page_refresh" value="1">
+    <input type="hidden" name="token" value="343b287a7338607b475842686271745d">
+  <input type="hidden" name="submit_save" value="Navi">
+
+  <ul class="nav nav-tabs" id="configFormDisplayTab" role="tablist">
+          <li class="nav-item" role="presentation">
+        <a class="nav-link active" id="Navi_panel-tab" href="#Navi_panel" data-bs-toggle="tab" role="tab" aria-controls="Navi_panel" aria-selected="true">Navigation panel</a>
+      </li>
+          <li class="nav-item" role="presentation">
+        <a class="nav-link" id="Navi_tree-tab" href="#Navi_tree" data-bs-toggle="tab" role="tab" aria-controls="Navi_tree" aria-selected="false">Navigation tree</a>
+      </li>
+          <li class="nav-item" role="presentation">
+        <a class="nav-link" id="Navi_servers-tab" href="#Navi_servers" data-bs-toggle="tab" role="tab" aria-controls="Navi_servers" aria-selected="false">Servers</a>
+      </li>
+          <li class="nav-item" role="presentation">
+        <a class="nav-link" id="Navi_databases-tab" href="#Navi_databases" data-bs-toggle="tab" role="tab" aria-controls="Navi_databases" aria-selected="false">Databases</a>
+      </li>
+          <li class="nav-item" role="presentation">
+        <a class="nav-link" id="Navi_tables-tab" href="#Navi_tables" data-bs-toggle="tab" role="tab" aria-controls="Navi_tables" aria-selected="false">Tables</a>
+      </li>
+      </ul>
+  <div class="tab-content">
+          <div class="tab-pane fade show active" id="Navi_panel" role="tabpanel" aria-labelledby="Navi_panel-tab">
+        <div class="card border-top-0">
+          <div class="card-body">
+            <h5 class="card-title visually-hidden">Navigation panel</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">Customize appearance of the navigation panel.</h6>
+            
+            <fieldset class="optbox">
+              <legend>Navigation panel</legend>
+
+                            
+              <table class="table table-borderless">
+                <tbody><tr>
+  <th>
+    <label for="ShowDatabasesNavigationAsTree">Show databases navigation as tree</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_ShowDatabasesNavigationAsTree" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+          <small>In the navigation panel, replaces the database tree with a selector</small>
+      </th>
+
+  <td>
+          <span class="checkbox">
+        <input type="checkbox" name="ShowDatabasesNavigationAsTree" id="ShowDatabasesNavigationAsTree" checked="checked">
+      </span>
+    
+    
+    
+          <a class="restore-default hide" href="#ShowDatabasesNavigationAsTree" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+<tr>
+  <th>
+    <label for="NavigationLinkWithMainPanel">Link with main panel</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_NavigationLinkWithMainPanel" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+          <small>Link with main panel by highlighting the current database or table.</small>
+      </th>
+
+  <td>
+          <span class="checkbox">
+        <input type="checkbox" name="NavigationLinkWithMainPanel" id="NavigationLinkWithMainPanel" checked="checked">
+      </span>
+    
+    
+    
+          <a class="restore-default hide" href="#NavigationLinkWithMainPanel" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+<tr>
+  <th>
+    <label for="NavigationDisplayLogo">Display logo</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_NavigationDisplayLogo" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+          <small>Show logo in navigation panel.</small>
+      </th>
+
+  <td>
+          <span class="checkbox">
+        <input type="checkbox" name="NavigationDisplayLogo" id="NavigationDisplayLogo" checked="checked">
+      </span>
+    
+    
+    
+          <a class="restore-default hide" href="#NavigationDisplayLogo" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+<tr>
+  <th>
+    <label for="NavigationLogoLink">Logo link URL</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_NavigationLogoLink" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+          <small>URL where logo in the navigation panel will point to.</small>
+      </th>
+
+  <td>
+          <input type="text" name="NavigationLogoLink" id="NavigationLogoLink" value="index.php" class="w-75">
+    
+    
+    
+          <a class="restore-default hide" href="#NavigationLogoLink" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+<tr>
+  <th>
+    <label for="NavigationLogoLinkWindow">Logo link target</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_NavigationLogoLinkWindow" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+          <small>Open the linked page in the main window (<code>main</code>) or in a new one (<code>new</code>).</small>
+      </th>
+
+  <td>
+          <select name="NavigationLogoLinkWindow" id="NavigationLogoLinkWindow" class="w-75">
+                            <option value="main" selected="selected">main</option>
+                            <option value="new">new</option>
+              </select>
+    
+    
+    
+          <a class="restore-default hide" href="#NavigationLogoLinkWindow" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+<tr>
+  <th>
+    <label for="NavigationTreePointerEnable">Enable highlighting</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_NavigationTreePointerEnable" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+          <small>Highlight server under the mouse cursor.</small>
+      </th>
+
+  <td>
+          <span class="checkbox">
+        <input type="checkbox" name="NavigationTreePointerEnable" id="NavigationTreePointerEnable" checked="checked">
+      </span>
+    
+    
+    
+          <a class="restore-default hide" href="#NavigationTreePointerEnable" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+<tr>
+  <th>
+    <label for="FirstLevelNavigationItems">Maximum items on first level</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_FirstLevelNavigationItems" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+          <small>The number of items that can be displayed on each page on the first level of the navigation tree.</small>
+      </th>
+
+  <td>
+          <input type="number" name="FirstLevelNavigationItems" id="FirstLevelNavigationItems" value="100" class="">
+    
+    
+    
+          <a class="restore-default hide" href="#FirstLevelNavigationItems" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+<tr>
+  <th>
+    <label for="NavigationTreeDisplayItemFilterMinimum">Minimum number of items to display the filter box</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_NavigationTreeDisplayItemFilterMinimum" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+          <small>Defines the minimum number of items (tables, views, routines and events) to display a filter box.</small>
+      </th>
+
+  <td>
+          <input type="number" name="NavigationTreeDisplayItemFilterMinimum" id="NavigationTreeDisplayItemFilterMinimum" value="30" class="">
+    
+    
+    
+          <a class="restore-default hide" href="#NavigationTreeDisplayItemFilterMinimum" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+<tr>
+  <th>
+    <label for="NumRecentTables">Recently used tables</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_NumRecentTables" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+          <small>Maximum number of recently used tables; set 0 to disable.</small>
+      </th>
+
+  <td>
+          <input type="number" name="NumRecentTables" id="NumRecentTables" value="10" class="">
+    
+    
+    
+          <a class="restore-default hide" href="#NumRecentTables" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+<tr>
+  <th>
+    <label for="NumFavoriteTables">Favorite tables</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_NumFavoriteTables" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+          <small>Maximum number of favorite tables; set 0 to disable.</small>
+      </th>
+
+  <td>
+          <input type="number" name="NumFavoriteTables" id="NumFavoriteTables" value="10" class="">
+    
+    
+    
+          <a class="restore-default hide" href="#NumFavoriteTables" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+<tr>
+  <th>
+    <label for="NavigationWidth">Navigation panel width</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_NavigationWidth" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+          <small>Set to 0 to collapse navigation panel.</small>
+      </th>
+
+  <td>
+          <input type="number" name="NavigationWidth" id="NavigationWidth" value="240" class="">
+    
+    
+    
+          <a class="restore-default hide" href="#NavigationWidth" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+
+              </tbody></table>
+            </fieldset>
+          </div>
+
+                  </div>
+      </div>
+          <div class="tab-pane fade" id="Navi_tree" role="tabpanel" aria-labelledby="Navi_tree-tab">
+        <div class="card border-top-0">
+          <div class="card-body">
+            <h5 class="card-title visually-hidden">Navigation tree</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">Customize the navigation tree.</h6>
+            
+            <fieldset class="optbox">
+              <legend>Navigation tree</legend>
+
+                            
+              <table class="table table-borderless">
+                <tbody><tr>
+  <th>
+    <label for="MaxNavigationItems">Maximum items in branch</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_MaxNavigationItems" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+          <small>The number of items that can be displayed on each page of the navigation tree.</small>
+      </th>
+
+  <td>
+          <input type="number" name="MaxNavigationItems" id="MaxNavigationItems" value="50" class="">
+    
+    
+    
+          <a class="restore-default hide" href="#MaxNavigationItems" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+<tr>
+  <th>
+    <label for="NavigationTreeEnableGrouping">Group items in the tree</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_NavigationTreeEnableGrouping" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+          <small>Group items in the navigation tree (determined by the separator defined in the Databases and Tables tabs above).</small>
+      </th>
+
+  <td>
+          <span class="checkbox">
+        <input type="checkbox" name="NavigationTreeEnableGrouping" id="NavigationTreeEnableGrouping" checked="checked">
+      </span>
+    
+    
+    
+          <a class="restore-default hide" href="#NavigationTreeEnableGrouping" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+<tr>
+  <th>
+    <label for="NavigationTreeEnableExpansion">Enable navigation tree expansion</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_NavigationTreeEnableExpansion" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+          <small>Whether to offer the possibility of tree expansion in the navigation panel.</small>
+      </th>
+
+  <td>
+          <span class="checkbox">
+        <input type="checkbox" name="NavigationTreeEnableExpansion" id="NavigationTreeEnableExpansion" checked="checked">
+      </span>
+    
+    
+    
+          <a class="restore-default hide" href="#NavigationTreeEnableExpansion" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+<tr>
+  <th>
+    <label for="NavigationTreeShowTables">Show tables in tree</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_NavigationTreeShowTables" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+          <small>Whether to show tables under database in the navigation tree</small>
+      </th>
+
+  <td>
+          <span class="checkbox">
+        <input type="checkbox" name="NavigationTreeShowTables" id="NavigationTreeShowTables" checked="checked">
+      </span>
+    
+    
+    
+          <a class="restore-default hide" href="#NavigationTreeShowTables" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+<tr>
+  <th>
+    <label for="NavigationTreeShowViews">Show views in tree</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_NavigationTreeShowViews" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+          <small>Whether to show views under database in the navigation tree</small>
+      </th>
+
+  <td>
+          <span class="checkbox">
+        <input type="checkbox" name="NavigationTreeShowViews" id="NavigationTreeShowViews" checked="checked">
+      </span>
+    
+    
+    
+          <a class="restore-default hide" href="#NavigationTreeShowViews" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+<tr>
+  <th>
+    <label for="NavigationTreeShowFunctions">Show functions in tree</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_NavigationTreeShowFunctions" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+          <small>Whether to show functions under database in the navigation tree</small>
+      </th>
+
+  <td>
+          <span class="checkbox">
+        <input type="checkbox" name="NavigationTreeShowFunctions" id="NavigationTreeShowFunctions" checked="checked">
+      </span>
+    
+    
+    
+          <a class="restore-default hide" href="#NavigationTreeShowFunctions" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+<tr>
+  <th>
+    <label for="NavigationTreeShowProcedures">Show procedures in tree</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_NavigationTreeShowProcedures" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+          <small>Whether to show procedures under database in the navigation tree</small>
+      </th>
+
+  <td>
+          <span class="checkbox">
+        <input type="checkbox" name="NavigationTreeShowProcedures" id="NavigationTreeShowProcedures" checked="checked">
+      </span>
+    
+    
+    
+          <a class="restore-default hide" href="#NavigationTreeShowProcedures" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+<tr>
+  <th>
+    <label for="NavigationTreeShowEvents">Show events in tree</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_NavigationTreeShowEvents" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+          <small>Whether to show events under database in the navigation tree</small>
+      </th>
+
+  <td>
+          <span class="checkbox">
+        <input type="checkbox" name="NavigationTreeShowEvents" id="NavigationTreeShowEvents" checked="checked">
+      </span>
+    
+    
+    
+          <a class="restore-default hide" href="#NavigationTreeShowEvents" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+<tr>
+  <th>
+    <label for="NavigationTreeAutoexpandSingleDb">Expand single database</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_NavigationTreeAutoexpandSingleDb" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+          <small>Whether to expand single database in the navigation tree automatically.</small>
+      </th>
+
+  <td>
+          <span class="checkbox">
+        <input type="checkbox" name="NavigationTreeAutoexpandSingleDb" id="NavigationTreeAutoexpandSingleDb" checked="checked">
+      </span>
+    
+    
+    
+          <a class="restore-default hide" href="#NavigationTreeAutoexpandSingleDb" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+
+              </tbody></table>
+            </fieldset>
+          </div>
+
+                  </div>
+      </div>
+          <div class="tab-pane fade" id="Navi_servers" role="tabpanel" aria-labelledby="Navi_servers-tab">
+        <div class="card border-top-0">
+          <div class="card-body">
+            <h5 class="card-title visually-hidden">Servers</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">Servers display options.</h6>
+            
+            <fieldset class="optbox">
+              <legend>Servers</legend>
+
+                            
+              <table class="table table-borderless">
+                <tbody><tr>
+  <th>
+    <label for="NavigationDisplayServers">Display servers selection</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_NavigationDisplayServers" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+          <small>Display server choice at the top of the navigation panel.</small>
+      </th>
+
+  <td>
+          <span class="checkbox">
+        <input type="checkbox" name="NavigationDisplayServers" id="NavigationDisplayServers" checked="checked">
+      </span>
+    
+    
+    
+          <a class="restore-default hide" href="#NavigationDisplayServers" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+<tr>
+  <th>
+    <label for="DisplayServersList">Display servers as a list</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_DisplayServersList" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+          <small>Show server listing as a list instead of a drop down.</small>
+      </th>
+
+  <td>
+          <span class="checkbox">
+        <input type="checkbox" name="DisplayServersList" id="DisplayServersList">
+      </span>
+    
+    
+    
+          <a class="restore-default hide" href="#DisplayServersList" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+
+              </tbody></table>
+            </fieldset>
+          </div>
+
+                  </div>
+      </div>
+          <div class="tab-pane fade" id="Navi_databases" role="tabpanel" aria-labelledby="Navi_databases-tab">
+        <div class="card border-top-0">
+          <div class="card-body">
+            <h5 class="card-title visually-hidden">Databases</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">Databases display options.</h6>
+            
+            <fieldset class="optbox">
+              <legend>Databases</legend>
+
+                            
+              <table class="table table-borderless">
+                <tbody><tr>
+  <th>
+    <label for="NavigationTreeDisplayDbFilterMinimum">Minimum number of databases to display the database filter box</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_NavigationTreeDisplayDbFilterMinimum" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+      </th>
+
+  <td>
+          <input type="number" name="NavigationTreeDisplayDbFilterMinimum" id="NavigationTreeDisplayDbFilterMinimum" value="30" class="">
+    
+    
+    
+          <a class="restore-default hide" href="#NavigationTreeDisplayDbFilterMinimum" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+<tr>
+  <th>
+    <label for="NavigationTreeDbSeparator">Database tree separator</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_NavigationTreeDbSeparator" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+          <small>String that separates databases into different tree levels.</small>
+      </th>
+
+  <td>
+                <input type="text" size="25" name="NavigationTreeDbSeparator" id="NavigationTreeDbSeparator" value="_" class="">
+    
+    
+    
+          <a class="restore-default hide" href="#NavigationTreeDbSeparator" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+
+              </tbody></table>
+            </fieldset>
+          </div>
+
+                  </div>
+      </div>
+          <div class="tab-pane fade" id="Navi_tables" role="tabpanel" aria-labelledby="Navi_tables-tab">
+        <div class="card border-top-0">
+          <div class="card-body">
+            <h5 class="card-title visually-hidden">Tables</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">Tables display options.</h6>
+            
+            <fieldset class="optbox">
+              <legend>Tables</legend>
+
+                            
+              <table class="table table-borderless">
+                <tbody><tr>
+  <th>
+    <label for="NavigationTreeDefaultTabTable">Target for quick access icon</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_NavigationTreeDefaultTabTable" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+      </th>
+
+  <td>
+          <select name="NavigationTreeDefaultTabTable" id="NavigationTreeDefaultTabTable" class="w-75">
+                            <option value="structure" selected="selected">Structure</option>
+                            <option value="sql">SQL</option>
+                            <option value="search">Search</option>
+                            <option value="insert">Insert</option>
+                            <option value="browse">Browse</option>
+              </select>
+    
+    
+    
+          <a class="restore-default hide" href="#NavigationTreeDefaultTabTable" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+<tr>
+  <th>
+    <label for="NavigationTreeDefaultTabTable2">Target for second quick access icon</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_NavigationTreeDefaultTabTable2" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+      </th>
+
+  <td>
+          <select name="NavigationTreeDefaultTabTable2" id="NavigationTreeDefaultTabTable2" class="w-75">
+                            <option value="" selected="selected"></option>
+                            <option value="structure">Structure</option>
+                            <option value="sql">SQL</option>
+                            <option value="search">Search</option>
+                            <option value="insert">Insert</option>
+                            <option value="browse">Browse</option>
+              </select>
+    
+    
+    
+          <a class="restore-default hide" href="#NavigationTreeDefaultTabTable2" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+<tr>
+  <th>
+    <label for="NavigationTreeTableSeparator">Table tree separator</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_NavigationTreeTableSeparator" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+          <small>String that separates tables into different tree levels.</small>
+      </th>
+
+  <td>
+                <input type="text" size="25" name="NavigationTreeTableSeparator" id="NavigationTreeTableSeparator" value="__" class="">
+    
+    
+    
+          <a class="restore-default hide" href="#NavigationTreeTableSeparator" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+<tr>
+  <th>
+    <label for="NavigationTreeTableLevel">Maximum table tree depth</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_NavigationTreeTableLevel" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+      </th>
+
+  <td>
+          <input type="number" name="NavigationTreeTableLevel" id="NavigationTreeTableLevel" value="1" class="">
+    
+    
+    
+          <a class="restore-default hide" href="#NavigationTreeTableLevel" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+
+              </tbody></table>
+            </fieldset>
+          </div>
+
+                  </div>
+      </div>
+      </div>
+</form>
+
+<script type="text/javascript">
+  if (typeof configInlineParams === 'undefined' || !Array.isArray(configInlineParams)) {
+    configInlineParams = [];
+  }
+  configInlineParams.push(function () {
+    registerFieldValidator('FirstLevelNavigationItems', 'validatePositiveNumber', true);
+registerFieldValidator('NavigationTreeDisplayItemFilterMinimum', 'validatePositiveNumber', true);
+registerFieldValidator('NumRecentTables', 'validateNonNegativeNumber', true);
+registerFieldValidator('NumFavoriteTables', 'validateNonNegativeNumber', true);
+registerFieldValidator('NavigationWidth', 'validateNonNegativeNumber', true);
+registerFieldValidator('MaxNavigationItems', 'validatePositiveNumber', true);
+registerFieldValidator('NavigationTreeTableLevel', 'validatePositiveNumber', true);
+
+    $.extend(Messages, {
+      'error_nan_p': 'Not\u0020a\u0020positive\u0020number\u0021',
+      'error_nan_nneg': 'Not\u0020a\u0020non\u002Dnegative\u0020number\u0021',
+      'error_incorrect_port': 'Not\u0020a\u0020valid\u0020port\u0020number\u0021',
+      'error_invalid_value': 'Incorrect\u0020value\u0021',
+      'error_value_lte': 'Value\u0020must\u0020be\u0020less\u0020than\u0020or\u0020equal\u0020to\u0020\u0025s\u0021',
+    });
+
+    $.extend(defaultValues, {
+      'ShowDatabasesNavigationAsTree': true,
+      'NavigationLinkWithMainPanel': true,
+      'NavigationDisplayLogo': true,
+      'NavigationLogoLink': 'index.php',
+      'NavigationLogoLinkWindow': ['main'],
+      'NavigationTreePointerEnable': true,
+      'FirstLevelNavigationItems': '100',
+      'NavigationTreeDisplayItemFilterMinimum': '30',
+      'NumRecentTables': '10',
+      'NumFavoriteTables': '10',
+      'NavigationWidth': '240',
+      'MaxNavigationItems': '50',
+      'NavigationTreeEnableGrouping': true,
+      'NavigationTreeEnableExpansion': true,
+      'NavigationTreeShowTables': true,
+      'NavigationTreeShowViews': true,
+      'NavigationTreeShowFunctions': true,
+      'NavigationTreeShowProcedures': true,
+      'NavigationTreeShowEvents': true,
+      'NavigationTreeAutoexpandSingleDb': true,
+      'NavigationDisplayServers': true,
+      'DisplayServersList': false,
+      'NavigationTreeDisplayDbFilterMinimum': '30',
+      'NavigationTreeDbSeparator': '_',
+      'NavigationTreeDefaultTabTable': ['structure'],
+      'NavigationTreeDefaultTabTable2': [''],
+      'NavigationTreeTableSeparator': '__',
+      'NavigationTreeTableLevel': '1'
+    });
+  });
+  if (typeof configScriptLoaded !== 'undefined' && configInlineParams) {
+    loadInlineConfig();
+  }
+</script>
+</div></div>
+              </div>
+    </div>
+
+          <div class="pma_drop_handler">
+        Drop files here      </div>
+      <div class="pma_sql_import_status">
+        <h2>
+          SQL upload          ( <span class="pma_import_count">0</span> )
+          <span class="close">x</span>
+          <span class="minimize">-</span>
+        </h2>
+        <div></div>
+      </div>
+      </div>
+  
+
+
+  <div id="pma_header" class="d-print-none"></div>
+  
+
+  
+      
+  
+      <div id="floating_menubar" class="d-print-none" style="margin-left: 243px; left: 0px; position: fixed; top: 0px; width: 100%; z-index: 99;">
+<nav id="server-breadcrumb" aria-label="breadcrumb">
+  <ol class="breadcrumb breadcrumb-navbar">
+    <li class="breadcrumb-item">
+      <img src="phpDatabasepartial_files/dot.gif" title="" alt="" class="icon ic_s_host">
+      <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/" data-raw-text="phpMyAdmin demo - MySQL">
+        Server:        phpMyAdmin demo - MySQL
+      </a>
+    </li>
+
+          <li class="breadcrumb-item">
+        <img src="phpDatabasepartial_files/dot.gif" title="" alt="" class="icon ic_s_db">
+        <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/structure&amp;db=RestaurantScheduler" data-raw-text="RestaurantScheduler">
+          Database:          RestaurantScheduler
+        </a>
+      </li>
+
+            </ol>
+</nav>
+<div id="topmenucontainer" class="menucontainer">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation" aria-controls="navbarNav" aria-expanded="false">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav" style="width: auto; overflow: visible;">
+      <ul id="topmenu" class="navbar-nav">
+                  <li class="nav-item">
+            <a class="nav-link text-nowrap" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/structure&amp;db=RestaurantScheduler">
+              <img src="phpDatabasepartial_files/dot.gif" title="Structure" alt="Structure" class="icon ic_b_props">&nbsp;Structure
+                          </a>
+          </li>
+                  <li class="nav-item">
+            <a class="nav-link text-nowrap" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/sql&amp;db=RestaurantScheduler">
+              <img src="phpDatabasepartial_files/dot.gif" title="SQL" alt="SQL" class="icon ic_b_sql">&nbsp;SQL
+                          </a>
+          </li>
+                  <li class="nav-item">
+            <a class="nav-link text-nowrap" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/search&amp;db=RestaurantScheduler">
+              <img src="phpDatabasepartial_files/dot.gif" title="Search" alt="Search" class="icon ic_b_search">&nbsp;Search
+                          </a>
+          </li>
+                  <li class="nav-item">
+            <a class="nav-link text-nowrap" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/multi-table-query&amp;db=RestaurantScheduler">
+              <img src="phpDatabasepartial_files/dot.gif" title="Query" alt="Query" class="icon ic_s_db">&nbsp;Query
+                          </a>
+          </li>
+                  <li class="nav-item">
+            <a class="nav-link text-nowrap" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/export&amp;db=RestaurantScheduler">
+              <img src="phpDatabasepartial_files/dot.gif" title="Export" alt="Export" class="icon ic_b_export">&nbsp;Export
+                          </a>
+          </li>
+                  <li class="nav-item">
+            <a class="nav-link text-nowrap" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/import&amp;db=RestaurantScheduler">
+              <img src="phpDatabasepartial_files/dot.gif" title="Import" alt="Import" class="icon ic_b_import">&nbsp;Import
+                          </a>
+          </li>
+                  <li class="nav-item">
+            <a class="nav-link text-nowrap" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/operations&amp;db=RestaurantScheduler">
+              <img src="phpDatabasepartial_files/dot.gif" title="Operations" alt="Operations" class="icon ic_b_tblops">&nbsp;Operations
+                          </a>
+          </li>
+                  <li class="nav-item">
+            <a class="nav-link text-nowrap" href="https://demo.phpmyadmin.net/master-config/index.php?route=/server/privileges&amp;db=RestaurantScheduler&amp;checkprivsdb=RestaurantScheduler&amp;viewing_mode=db">
+              <img src="phpDatabasepartial_files/dot.gif" title="Privileges" alt="Privileges" class="icon ic_s_rights">&nbsp;Privileges
+                          </a>
+          </li>
+                  <li class="nav-item">
+            <a class="nav-link text-nowrap" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/routines&amp;db=RestaurantScheduler">
+              <img src="phpDatabasepartial_files/dot.gif" title="Routines" alt="Routines" class="icon ic_b_routines">&nbsp;Routines
+                          </a>
+          </li>
+                  <li class="nav-item">
+            <a class="nav-link text-nowrap" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/events&amp;db=RestaurantScheduler">
+              <img src="phpDatabasepartial_files/dot.gif" title="Events" alt="Events" class="icon ic_b_events">&nbsp;Events
+                          </a>
+          </li>
+                  <li class="nav-item">
+            <a class="nav-link text-nowrap" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/triggers&amp;db=RestaurantScheduler">
+              <img src="phpDatabasepartial_files/dot.gif" title="Triggers" alt="Triggers" class="icon ic_b_triggers">&nbsp;Triggers
+                          </a>
+          </li>
+                  <li class="nav-item">
+            <a class="nav-link text-nowrap" href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/designer&amp;db=RestaurantScheduler">
+              <img src="phpDatabasepartial_files/dot.gif" title="Designer" alt="Designer" class="icon ic_b_relations">&nbsp;Designer
+                          </a>
+          </li>
+              <li class="nav-item dropdown d-none" style=""><a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img alt="" title="" src="phpDatabasepartial_files/dot.gif" class="icon ic_b_more">More</a><ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown"></ul></li></ul>
+    </div>
+  </nav>
+</div>
+</div>
+
+
+
+    <span id="page_nav_icons" class="d-print-none">
+      <span id="lock_page_icon"><img alt="Indicates that you have made changes to this page; you will be prompted for confirmation before abandoning changes" title="Indicates that you have made changes to this page; you will be prompted for confirmation before abandoning changes" src="phpDatabasepartial_files/dot.gif" class="icon ic_s_lock"></span>
+      <span id="page_settings_icon" style="display: inline;">
+        <img src="phpDatabasepartial_files/dot.gif" title="Page-related settings" alt="Page-related settings" class="icon ic_s_cog">
+      </span>
+      <a id="goto_pagetop" href="#"><img src="phpDatabasepartial_files/dot.gif" title="Click on the bar to scroll to top of page" alt="Click on the bar to scroll to top of page" class="icon ic_s_top"></a>
+    </span>
+  
+  <div id="pma_console_container" class="d-print-none">
+    <div id="pma_console" style="margin-left: 243px;">
+                <div class="toolbar collapsed">
+                    <div class="switch_button console_switch">
+            <img src="phpDatabasepartial_files/dot.gif" title="SQL Query Console" alt="SQL Query Console" class="icon ic_console">
+            <span>Console</span>
+        </div>
+                            <div class="button clear">
+            
+            <span>Clear</span>
+        </div>
+                            <div class="button history">
+            
+            <span>History</span>
+        </div>
+                            <div class="button options">
+            
+            <span>Options</span>
+        </div>
+                            <div class="button bookmarks">
+            
+            <span>Bookmarks</span>
+        </div>
+                            <div class="button debug hide">
+            
+            <span>Debug SQL</span>
+        </div>
+            </div>
+                <div class="content" style="height: 98.048px; margin-bottom: -98.05px; display: none;">
+            <div class="console_message_container">
+                <div class="message welcome binded">
+                    <span id="instructions-0">
+                        Press Ctrl+Enter to execute query                    </span>
+                    <span class="hide" id="instructions-1">
+                        Press Enter to execute query                    </span>
+                </div>
+                            <div class="message collapsed binded successed" msgid="229452302115"><div class="action_content">
+                    <span class="action collapse">
+            Collapse
+                    </span>
+                            <span class="action expand">
+            Expand
+                    </span>
+                            <span class="action requery">
+            Requery
+                    </span>
+                            <span class="action edit">
+            Edit
+                    </span>
+                            <span class="action explain">
+            Explain
+                    </span>
+                            <span class="action profiling">
+            Profiling
+                    </span>
+                            <span class="action bookmark">
+            Bookmark
+                    </span>
+                            <span class="text failed">
+            Query failed
+                    </span>
+                            <span class="text targetdb">
+            Database
+                            : <span></span>
+                    </span>
+                            <span class="text query_time" title="Sun Dec 05 2021 15:49:33 GMT-0600 (Central Standard Time)">
+            Queried time
+                            : <span>15:49:33</span>
+                    </span>
+            </div><div class="query highlighted"><span class="cm-keyword">CREATE</span> <span class="cm-keyword">TABLE</span> Manager
+<span class="cm-bracket">(</span>
+    Username <span class="cm-builtin">VARCHAR</span><span class="cm-bracket">(</span><span class="cm-number">15</span><span class="cm-bracket">)</span> UNIQUE <span class="cm-keyword">NOT</span> <span class="cm-atom">NULL</span><span class="cm-punctuation">,</span>
+    Passcode <span class="cm-builtin">VARCHAR</span><span class="cm-bracket">(</span><span class="cm-number">20</span><span class="cm-bracket">)</span> <span class="cm-keyword">NOT</span> <span class="cm-atom">NULL</span>
+<span class="cm-bracket">)</span><span class="cm-punctuation">;</span></div></div><div class="message collapsed binded successed" msgid="797839790526"><div class="action_content">
+                    <span class="action collapse">
+            Collapse
+                    </span>
+                            <span class="action expand">
+            Expand
+                    </span>
+                            <span class="action requery">
+            Requery
+                    </span>
+                            <span class="action edit">
+            Edit
+                    </span>
+                            <span class="action explain">
+            Explain
+                    </span>
+                            <span class="action profiling">
+            Profiling
+                    </span>
+                            <span class="action bookmark">
+            Bookmark
+                    </span>
+                            <span class="text failed">
+            Query failed
+                    </span>
+                            <span class="text targetdb">
+            Database
+                            : <span></span>
+                    </span>
+                            <span class="text query_time" title="Sun Dec 05 2021 15:49:48 GMT-0600 (Central Standard Time)">
+            Queried time
+                            : <span>15:49:48</span>
+                    </span>
+            </div><div class="query highlighted"><span class="cm-keyword">INSERT</span> <span class="cm-keyword">INTO</span> Manager
+<span class="cm-keyword">VALUES</span> <span class="cm-bracket">(</span><span class="cm-string">'Admin'</span><span class="cm-punctuation">,</span> <span class="cm-string">'Password'</span><span class="cm-bracket">)</span><span class="cm-punctuation">;</span></div></div><div class="message collapsed binded successed" msgid="354680040335"><div class="action_content">
+                    <span class="action collapse">
+            Collapse
+                    </span>
+                            <span class="action expand">
+            Expand
+                    </span>
+                            <span class="action requery">
+            Requery
+                    </span>
+                            <span class="action edit">
+            Edit
+                    </span>
+                            <span class="action explain">
+            Explain
+                    </span>
+                            <span class="action profiling">
+            Profiling
+                    </span>
+                            <span class="action bookmark">
+            Bookmark
+                    </span>
+                            <span class="text failed">
+            Query failed
+                    </span>
+                            <span class="text targetdb">
+            Database
+                            : <span></span>
+                    </span>
+                            <span class="text query_time" title="Sun Dec 05 2021 15:50:00 GMT-0600 (Central Standard Time)">
+            Queried time
+                            : <span>15:50:0</span>
+                    </span>
+            </div><div class="query highlighted"><span class="cm-keyword">CREATE</span> <span class="cm-keyword">TABLE</span> Employees
+<span class="cm-bracket">(</span>
+    ID <span class="cm-builtin">INT</span> PRIMARY KEY<span class="cm-punctuation">,</span>
+    fname <span class="cm-builtin">VARCHAR</span><span class="cm-bracket">(</span><span class="cm-number">15</span><span class="cm-bracket">)</span> <span class="cm-keyword">NOT</span> <span class="cm-atom">NULL</span><span class="cm-punctuation">,</span>
+    lname <span class="cm-builtin">VARCHAR</span><span class="cm-bracket">(</span><span class="cm-number">15</span><span class="cm-bracket">)</span> <span class="cm-keyword">NOT</span> <span class="cm-atom">NULL</span><span class="cm-punctuation">,</span>
+    phone <span class="cm-builtin">VARCHAR</span><span class="cm-bracket">(</span><span class="cm-number">10</span><span class="cm-bracket">)</span> <span class="cm-keyword">NOT</span> <span class="cm-atom">NULL</span><span class="cm-punctuation">,</span>
+    DOB <span class="cm-builtin">VARCHAR</span><span class="cm-bracket">(</span><span class="cm-number">10</span><span class="cm-bracket">)</span> <span class="cm-keyword">NOT</span> <span class="cm-atom">NULL</span>
+<span class="cm-bracket">)</span><span class="cm-punctuation">;</span></div></div><div class="message collapsed binded successed" msgid="439859685000"><div class="action_content">
+                    <span class="action collapse">
+            Collapse
+                    </span>
+                            <span class="action expand">
+            Expand
+                    </span>
+                            <span class="action requery">
+            Requery
+                    </span>
+                            <span class="action edit">
+            Edit
+                    </span>
+                            <span class="action explain">
+            Explain
+                    </span>
+                            <span class="action profiling">
+            Profiling
+                    </span>
+                            <span class="action bookmark">
+            Bookmark
+                    </span>
+                            <span class="text failed">
+            Query failed
+                    </span>
+                            <span class="text targetdb">
+            Database
+                            : <span></span>
+                    </span>
+                            <span class="text query_time" title="Sun Dec 05 2021 15:50:46 GMT-0600 (Central Standard Time)">
+            Queried time
+                            : <span>15:50:46</span>
+                    </span>
+            </div><div class="query highlighted"><span class="cm-keyword">CREATE</span> <span class="cm-keyword">TABLE</span> Schedules
+<span class="cm-bracket">(</span>   
+    Name <span class="cm-builtin">VARCHAR</span><span class="cm-bracket">(</span><span class="cm-number">15</span><span class="cm-bracket">)</span> UNIQUE <span class="cm-keyword">NOT</span> <span class="cm-atom">NULL</span><span class="cm-punctuation">,</span>
+    Startdate <span class="cm-builtin">VARCHAR</span><span class="cm-bracket">(</span><span class="cm-number">25</span><span class="cm-bracket">)</span>
+<span class="cm-bracket">)</span><span class="cm-punctuation">;</span></div></div><div class="message collapsed binded successed" msgid="403921992512"><div class="action_content">
+                    <span class="action collapse">
+            Collapse
+                    </span>
+                            <span class="action expand">
+            Expand
+                    </span>
+                            <span class="action requery">
+            Requery
+                    </span>
+                            <span class="action edit">
+            Edit
+                    </span>
+                            <span class="action explain">
+            Explain
+                    </span>
+                            <span class="action profiling">
+            Profiling
+                    </span>
+                            <span class="action bookmark">
+            Bookmark
+                    </span>
+                            <span class="text failed">
+            Query failed
+                    </span>
+                            <span class="text targetdb">
+            Database
+                            : <span></span>
+                    </span>
+                            <span class="text query_time" title="Sun Dec 05 2021 15:50:57 GMT-0600 (Central Standard Time)">
+            Queried time
+                            : <span>15:50:57</span>
+                    </span>
+            </div><div class="query highlighted"><span class="cm-keyword">CREATE</span> <span class="cm-keyword">TABLE</span> WorkProfiles
+<span class="cm-bracket">(</span>
+    EMPID <span class="cm-builtin">INT</span><span class="cm-punctuation">,</span>
+    DesiredHours <span class="cm-builtin">INT</span> <span class="cm-keyword">NOT</span> <span class="cm-atom">NULL</span><span class="cm-punctuation">,</span>
+    IsEnabled <span class="cm-builtin">BIT</span> <span class="cm-keyword">NOT</span> <span class="cm-atom">NULL</span><span class="cm-punctuation">,</span>
+    CurrentHours <span class="cm-builtin">INT</span> <span class="cm-keyword">NOT</span> <span class="cm-atom">NULL</span><span class="cm-punctuation">,</span>
+    FOREIGN KEY <span class="cm-bracket">(</span>EMPID<span class="cm-bracket">)</span> REFERENCES Employees<span class="cm-bracket">(</span>ID<span class="cm-bracket">)</span>
+<span class="cm-bracket">)</span><span class="cm-punctuation">;</span></div></div><div class="message collapsed binded successed" msgid="168266995436"><div class="action_content">
+                    <span class="action collapse">
+            Collapse
+                    </span>
+                            <span class="action expand">
+            Expand
+                    </span>
+                            <span class="action requery">
+            Requery
+                    </span>
+                            <span class="action edit">
+            Edit
+                    </span>
+                            <span class="action explain">
+            Explain
+                    </span>
+                            <span class="action profiling">
+            Profiling
+                    </span>
+                            <span class="action bookmark">
+            Bookmark
+                    </span>
+                            <span class="text failed">
+            Query failed
+                    </span>
+                            <span class="text targetdb">
+            Database
+                            : <span></span>
+                    </span>
+                            <span class="text query_time" title="Sun Dec 05 2021 15:52:05 GMT-0600 (Central Standard Time)">
+            Queried time
+                            : <span>15:52:5</span>
+                    </span>
+            </div><div class="query highlighted"><span class="cm-keyword">CREATE</span> <span class="cm-keyword">TABLE</span> EmergencyContact
+<span class="cm-bracket">(</span>
+    EMPID <span class="cm-builtin">INT</span><span class="cm-punctuation">,</span>
+    Relation <span class="cm-builtin">VARCHAR</span><span class="cm-bracket">(</span><span class="cm-number">15</span><span class="cm-bracket">)</span><span class="cm-punctuation">,</span>
+    Name <span class="cm-builtin">VARCHAR</span><span class="cm-bracket">(</span><span class="cm-number">15</span><span class="cm-bracket">)</span><span class="cm-punctuation">,</span>
+    Phone <span class="cm-builtin">VARCHAR</span><span class="cm-bracket">(</span><span class="cm-number">10</span><span class="cm-bracket">)</span><span class="cm-punctuation">,</span>
+    FOREIGN KEY <span class="cm-bracket">(</span>EMPID<span class="cm-bracket">)</span> REFERENCES Employees<span class="cm-bracket">(</span>ID<span class="cm-bracket">)</span>
+<span class="cm-bracket">)</span><span class="cm-punctuation">;</span></div></div></div><!-- console_message_container -->
+            <div class="query_input">
+                <span class="console_query_input"><div class="CodeMirror cm-s-pma CodeMirror-wrap" translate="no"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 16px;"><textarea style="position: absolute; bottom: -1em; padding: 0px; width: 1px; height: 1em; min-height: 1em; outline: currentcolor none medium;" autocorrect="off" autocapitalize="none" spellcheck="false" tabindex="0" wrap="off"></textarea></div><div class="CodeMirror-vscrollbar" tabindex="-1" cm-not-content="true"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" tabindex="-1" cm-not-content="true"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1" draggable="true"><div class="CodeMirror-sizer" style="margin-left: 16px; margin-bottom: -17px; border-right-width: 33px; min-height: 20px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div style="position: relative; outline: currentcolor none medium;" role="presentation"><div class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors"><div class="CodeMirror-cursor" style="left: 0px; top: 0px; height: 19.6833px;">&nbsp;</div></div><div class="CodeMirror-code" role="presentation"><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span cm-text="">​</span></span></pre></div></div></div></div></div><div style="position: absolute; height: 33px; width: 1px; border-bottom: 0px solid transparent; top: 20px;"></div><div class="CodeMirror-gutters" style="height: 53px;"><div class="CodeMirror-gutter CodeMirror-lint-markers"></div></div></div></div></span>
+            </div>
+        </div><!-- message end -->
+                <div class="mid_layer"></div>
+                <div class="card ungrouped" id="debug_console">
+            <div class="toolbar ">
+                    <div class="button order order_asc active">
+            
+            <span>ascending</span>
+        </div>
+                            <div class="button order order_desc">
+            
+            <span>descending</span>
+        </div>
+                            <div class="text">
+            
+            <span>Order:</span>
+        </div>
+                            <div class="switch_button">
+            
+            <span>Debug SQL</span>
+        </div>
+                            <div class="button order_by sort_count">
+            
+            <span>Count</span>
+        </div>
+                            <div class="button order_by sort_exec active">
+            
+            <span>Execution order</span>
+        </div>
+                            <div class="button order_by sort_time">
+            
+            <span>Time taken</span>
+        </div>
+                            <div class="text">
+            
+            <span>Order by:</span>
+        </div>
+                            <div class="button group_queries">
+            
+            <span>Group queries</span>
+        </div>
+                            <div class="button ungroup_queries">
+            
+            <span>Ungroup queries</span>
+        </div>
+            </div>
+            <div class="content debug" style="height: 98.048px;">
+                <div class="message welcome binded">Some error occurred while getting SQL debug info.</div>
+                <div class="debugLog"></div>
+            </div> <!-- Content -->
+            <div class="templates">
+                <div class="debug_query action_content">
+                    <span class="action collapse">
+            Collapse
+                    </span>
+                            <span class="action expand">
+            Expand
+                    </span>
+                            <span class="action dbg_show_trace">
+            Show trace
+                    </span>
+                            <span class="action dbg_hide_trace">
+            Hide trace
+                    </span>
+                            <span class="text count hide">
+            Count
+                    </span>
+                            <span class="text time">
+            Time taken
+                    </span>
+            </div>
+            </div> <!-- Template -->
+        </div> <!-- Debug SQL card -->
+                        <div class="card" id="pma_console_options">
+            <div class="toolbar ">
+                    <div class="switch_button">
+            
+            <span>Options</span>
+        </div>
+                            <div class="button default">
+            
+            <span>Set default</span>
+        </div>
+            </div>
+            <div class="content" style="height: 100.8px;">
+                <label>
+                    <input type="checkbox" name="always_expand">Always expand query messages                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="start_history">Show query history at start                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="current_query" checked="checked">Show current browsing query                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="enter_executes">
+                        Execute queries on Enter and insert new line 
+with Shift+Enter. To make this permanent, view settings.                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="dark_theme">Switch to dark theme                </label>
+                <br>
+            </div>
+        </div> <!-- Options card -->
+        <div class="templates">
+                        <div class="query_actions">
+                    <span class="action collapse">
+            Collapse
+                    </span>
+                            <span class="action expand">
+            Expand
+                    </span>
+                            <span class="action requery">
+            Requery
+                    </span>
+                            <span class="action edit">
+            Edit
+                    </span>
+                            <span class="action explain">
+            Explain
+                    </span>
+                            <span class="action profiling">
+            Profiling
+                    </span>
+                            <span class="action bookmark">
+            Bookmark
+                    </span>
+                            <span class="text failed">
+            Query failed
+                    </span>
+                            <span class="text targetdb">
+            Database
+                            : <span></span>
+                    </span>
+                            <span class="text query_time">
+            Queried time
+                            : <span></span>
+                    </span>
+            </div>
+        </div>
+    </div> <!-- #console end -->
+</div> <!-- #console_container end -->
+
+
+  <div id="page_content"><div id="loading_parent"></div><div id="page_settings_modal"><div class="page_settings"><form method="post" action="index.php?route=%2Fdatabase%2Fsql&amp;db=RestaurantScheduler&amp;server=2" class="config-form disableAjax">
+  <input type="hidden" name="tab_hash" value="">
+      <input type="hidden" name="check_page_refresh" id="check_page_refresh" value="">
+    <input type="hidden" name="token" value="343b287a7338607b475842686271745d">
+  <input type="hidden" name="submit_save" value="Sql">
+
+  <ul class="nav nav-tabs" id="configFormDisplayTab" role="tablist">
+          <li class="nav-item" role="presentation">
+        <a class="nav-link active" id="Sql_queries-tab" href="#Sql_queries" data-bs-toggle="tab" role="tab" aria-controls="Sql_queries" aria-selected="true">SQL queries</a>
+      </li>
+          <li class="nav-item" role="presentation">
+        <a class="nav-link" id="Sql_box-tab" href="#Sql_box" data-bs-toggle="tab" role="tab" aria-controls="Sql_box" aria-selected="false">SQL Query box</a>
+      </li>
+      </ul>
+  <div class="tab-content">
+          <div class="tab-pane fade show active" id="Sql_queries" role="tabpanel" aria-labelledby="Sql_queries-tab">
+        <div class="card border-top-0">
+          <div class="card-body">
+            <h5 class="card-title visually-hidden">SQL queries</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">SQL queries settings.</h6>
+            
+            <fieldset class="optbox">
+              <legend>SQL queries</legend>
+
+                            
+              <table class="table table-borderless">
+                <tbody><tr>
+  <th>
+    <label for="ShowSQL">Show SQL queries</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_ShowSQL" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+          <small>Defines whether SQL queries generated by phpMyAdmin should be displayed.</small>
+      </th>
+
+  <td>
+          <span class="checkbox">
+        <input type="checkbox" name="ShowSQL" id="ShowSQL" checked="checked">
+      </span>
+    
+    
+    
+          <a class="restore-default hide" href="#ShowSQL" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+<tr>
+  <th>
+    <label for="Confirm">Confirm DROP queries</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_Confirm" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+          <small>Whether a warning ("Are your really sure…") should be displayed when you're about to lose data.</small>
+      </th>
+
+  <td>
+          <span class="checkbox">
+        <input type="checkbox" name="Confirm" id="Confirm" checked="checked">
+      </span>
+    
+    
+    
+          <a class="restore-default hide" href="#Confirm" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+<tr>
+  <th>
+    <label for="QueryHistoryMax">Query history length</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_QueryHistoryMax" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+          <small>How many queries are kept in history.</small>
+      </th>
+
+  <td>
+          <input type="number" name="QueryHistoryMax" id="QueryHistoryMax" value="25" class="">
+    
+    
+    
+          <a class="restore-default hide" href="#QueryHistoryMax" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+<tr>
+  <th>
+    <label for="IgnoreMultiSubmitErrors">Ignore multiple statement errors</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_IgnoreMultiSubmitErrors" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+          <small>If enabled, phpMyAdmin continues computing multiple-statement queries even if one of the queries failed.</small>
+      </th>
+
+  <td>
+          <span class="checkbox">
+        <input type="checkbox" name="IgnoreMultiSubmitErrors" id="IgnoreMultiSubmitErrors">
+      </span>
+    
+    
+    
+          <a class="restore-default hide" href="#IgnoreMultiSubmitErrors" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+<tr>
+  <th>
+    <label for="MaxCharactersInDisplayedSQL">Maximum displayed SQL length</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_MaxCharactersInDisplayedSQL" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+          <small>Maximum number of characters used when a SQL query is displayed.</small>
+      </th>
+
+  <td>
+          <input type="number" name="MaxCharactersInDisplayedSQL" id="MaxCharactersInDisplayedSQL" value="1000" class="">
+    
+    
+    
+          <a class="restore-default hide" href="#MaxCharactersInDisplayedSQL" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+<tr>
+  <th>
+    <label for="RetainQueryBox">Retain query box</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_RetainQueryBox" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+          <small>Defines whether the query box should stay on-screen after its submission.</small>
+      </th>
+
+  <td>
+          <span class="checkbox">
+        <input type="checkbox" name="RetainQueryBox" id="RetainQueryBox">
+      </span>
+    
+    
+    
+          <a class="restore-default hide" href="#RetainQueryBox" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+<tr>
+  <th>
+    <label for="CodemirrorEnable">Enable CodeMirror</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_CodemirrorEnable" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+          <small>Use user-friendly editor for editing SQL queries (CodeMirror) with syntax highlighting and line numbers.</small>
+      </th>
+
+  <td>
+          <span class="checkbox">
+        <input type="checkbox" name="CodemirrorEnable" id="CodemirrorEnable" checked="checked">
+      </span>
+    
+    
+    
+          <a class="restore-default hide" href="#CodemirrorEnable" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+<tr>
+  <th>
+    <label for="LintEnable">Enable linter</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_LintEnable" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+          <small>Find any errors in the query before executing it. Requires CodeMirror to be enabled.</small>
+      </th>
+
+  <td>
+          <span class="checkbox">
+        <input type="checkbox" name="LintEnable" id="LintEnable" checked="checked">
+      </span>
+    
+    
+    
+          <a class="restore-default hide" href="#LintEnable" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+<tr>
+  <th>
+    <label for="EnableAutocompleteForTablesAndColumns">Enable autocomplete for table and column names</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_EnableAutocompleteForTablesAndColumns" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+          <small>Autocomplete of the table and column names in the SQL queries.</small>
+      </th>
+
+  <td>
+          <span class="checkbox">
+        <input type="checkbox" name="EnableAutocompleteForTablesAndColumns" id="EnableAutocompleteForTablesAndColumns" checked="checked">
+      </span>
+    
+    
+    
+          <a class="restore-default hide" href="#EnableAutocompleteForTablesAndColumns" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+<tr>
+  <th>
+    <label for="DefaultForeignKeyChecks">Foreign key checks</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_DefaultForeignKeyChecks" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+          <small>Default value for foreign key checks checkbox for some queries.</small>
+      </th>
+
+  <td>
+          <select name="DefaultForeignKeyChecks" id="DefaultForeignKeyChecks" class="w-75">
+                            <option value="default" selected="selected">Server default</option>
+                            <option value="enable">Enable</option>
+                            <option value="disable">Disable</option>
+              </select>
+    
+    
+    
+          <a class="restore-default hide" href="#DefaultForeignKeyChecks" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+
+              </tbody></table>
+            </fieldset>
+          </div>
+
+                  </div>
+      </div>
+          <div class="tab-pane fade" id="Sql_box" role="tabpanel" aria-labelledby="Sql_box-tab">
+        <div class="card border-top-0">
+          <div class="card-body">
+            <h5 class="card-title visually-hidden">SQL Query box</h5>
+                          <h6 class="card-subtitle mb-2 text-muted">Customize links shown in SQL Query boxes.</h6>
+            
+            <fieldset class="optbox">
+              <legend>SQL Query box</legend>
+
+                            
+              <table class="table table-borderless">
+                <tbody><tr>
+  <th>
+    <label for="SQLQuery-Edit">Edit</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_SQLQuery_Edit" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+      </th>
+
+  <td>
+          <span class="checkbox">
+        <input type="checkbox" name="SQLQuery-Edit" id="SQLQuery-Edit" checked="checked">
+      </span>
+    
+    
+    
+          <a class="restore-default hide" href="#SQLQuery-Edit" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+<tr>
+  <th>
+    <label for="SQLQuery-Explain">Explain SQL</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_SQLQuery_Explain" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+      </th>
+
+  <td>
+          <span class="checkbox">
+        <input type="checkbox" name="SQLQuery-Explain" id="SQLQuery-Explain" checked="checked">
+      </span>
+    
+    
+    
+          <a class="restore-default hide" href="#SQLQuery-Explain" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+<tr>
+  <th>
+    <label for="SQLQuery-ShowAsPHP">Create PHP code</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_SQLQuery_ShowAsPHP" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+      </th>
+
+  <td>
+          <span class="checkbox">
+        <input type="checkbox" name="SQLQuery-ShowAsPHP" id="SQLQuery-ShowAsPHP" checked="checked">
+      </span>
+    
+    
+    
+          <a class="restore-default hide" href="#SQLQuery-ShowAsPHP" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+<tr>
+  <th>
+    <label for="SQLQuery-Refresh">Refresh</label>
+
+          <span class="doc">
+        <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Fconfig.html%23cfg_SQLQuery_Refresh" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+      </span>
+    
+    
+      </th>
+
+  <td>
+          <span class="checkbox">
+        <input type="checkbox" name="SQLQuery-Refresh" id="SQLQuery-Refresh" checked="checked">
+      </span>
+    
+    
+    
+          <a class="restore-default hide" href="#SQLQuery-Refresh" title="Restore default value" style="display: inline-block; opacity: 0.25;"><img src="phpDatabasepartial_files/dot.gif" title="Restore default value" alt="Restore default value" class="icon ic_s_reload" style="display: none;"></a>
+    
+          </td>
+
+  </tr>
+
+              </tbody></table>
+            </fieldset>
+          </div>
+
+                  </div>
+      </div>
+      </div>
+</form>
+
+<script type="text/javascript">
+  if (typeof configInlineParams === 'undefined' || !Array.isArray(configInlineParams)) {
+    configInlineParams = [];
+  }
+  configInlineParams.push(function () {
+    registerFieldValidator('QueryHistoryMax', 'validatePositiveNumber', true);
+registerFieldValidator('QueryHistoryMax', 'validateUpperBound', true, ['25']);
+registerFieldValidator('MaxCharactersInDisplayedSQL', 'validatePositiveNumber', true);
+
+    $.extend(Messages, {
+      'error_nan_p': 'Not\u0020a\u0020positive\u0020number\u0021',
+      'error_nan_nneg': 'Not\u0020a\u0020non\u002Dnegative\u0020number\u0021',
+      'error_incorrect_port': 'Not\u0020a\u0020valid\u0020port\u0020number\u0021',
+      'error_invalid_value': 'Incorrect\u0020value\u0021',
+      'error_value_lte': 'Value\u0020must\u0020be\u0020less\u0020than\u0020or\u0020equal\u0020to\u0020\u0025s\u0021',
+    });
+
+    $.extend(defaultValues, {
+      'ShowSQL': true,
+      'Confirm': true,
+      'QueryHistoryMax': '25',
+      'IgnoreMultiSubmitErrors': false,
+      'MaxCharactersInDisplayedSQL': '1000',
+      'RetainQueryBox': false,
+      'CodemirrorEnable': true,
+      'LintEnable': true,
+      'EnableAutocompleteForTablesAndColumns': true,
+      'DefaultForeignKeyChecks': ['default'],
+      'SQLQuery-Edit': true,
+      'SQLQuery-Explain': true,
+      'SQLQuery-ShowAsPHP': true,
+      'SQLQuery-Refresh': true
+    });
+  });
+  if (typeof configScriptLoaded !== 'undefined' && configInlineParams) {
+    loadInlineConfig();
+  }
+</script>
+</div></div><form method="post" action="index.php?route=/import" class="ajax lock-page" id="sqlqueryform" name="sqlform" enctype="multipart/form-data">
+  <input type="hidden" name="db" value="RestaurantScheduler" style="display: none;"><input type="hidden" name="token" value="343b287a7338607b475842686271745d" style="display: none;">
+  <input type="hidden" name="is_js_confirmed" value="0" style="display: none;">
+  <input type="hidden" name="pos" value="0" style="display: none;">
+  <input type="hidden" name="goto" value="index.php?route=/database/sql" style="display: none;">
+  <input type="hidden" name="message_to_show" value="Your SQL query has been executed successfully." style="display: none;">
+  <input type="hidden" name="prev_sql_query" value="" style="display: none;">
+
+      <a id="querybox" style=""></a>
+
+    <div class="card mb-3" style="">
+      <div class="card-header">Run SQL query/queries on database <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/database/structure&amp;db=RestaurantScheduler">RestaurantScheduler</a>: <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F8.0%2Fen%2Fselect.html" target="mysql_doc"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a></div>
+      <div class="card-body">
+        <div id="queryfieldscontainer">
+          <div class="row">
+            <div class="col">
+              <div class="mb-3">
+                <textarea class="form-control" tabindex="100" name="sql_query" id="sqlquery" cols="40" rows="15" data-textarea-auto-select="false" aria-label="SQL query" style="display: none;">INSERT INTO EmergencyContact
+VALUES('1', 'Mother', 'Ophelia' '6607289352'),
+('2', 'Mother', 'Ophelia' '6607289352'),
+('3', 'Mother', 'Gertrude' '6607289352'),
+('4', 'Mother', 'Josie' '6607289352'),
+('5', 'Mother', 'mother' '6607289352'),
+('6', 'Mother', 'bear' '6607289352'),
+('7', 'Mother', 'dearest' '6607289352'),
+('8', 'Mother', 'hare' '6607289352'),
+('9', 'Mother', 'Oedipus' '6607289352'),
+('10', 'Mother', 'Gaia' '6607289352'),
+('11', 'Mother', 'Nature' '6607289352'),
+('12', 'Mother', 'Lenny' '6607289352'),
+('13', 'Mother', 'Sally' '6607289352'),
+('14', 'Mother', 'Sandra' '6607289352'),
+('15', 'Mother', 'Gothel' '6607289352'),
+('16', 'Mother', 'Ailehpo' '6607289352'),
+('17', 'Mother', 'Kakaya' '6607289352'),
+('18', 'Mother', 'Puerta' '6607289352');</textarea><div class="CodeMirror cm-s-default CodeMirror-wrap ui-resizable CodeMirror-focused" translate="no" style="resize: vertical;"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 4px; left: 50px;"><textarea style="position: absolute; bottom: -1em; padding: 0px; width: 1px; height: 1em; min-height: 1em; outline: currentcolor none medium;" autocorrect="off" autocapitalize="none" spellcheck="false" tabindex="100" wrap="off"></textarea></div><div class="CodeMirror-vscrollbar" tabindex="-1" cm-not-content="true" style="bottom: 0px;"><div style="min-width: 1px; height: 0px;"></div></div><div class="CodeMirror-hscrollbar" tabindex="-1" cm-not-content="true"><div style="height: 100%; min-height: 1px; width: 0px;"></div></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1" draggable="true"><div class="CodeMirror-sizer" style="margin-left: 46px; margin-bottom: -17px; border-right-width: 33px; min-height: 28px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div style="position: relative; outline: currentcolor none medium;" role="presentation"><div class="CodeMirror-measure"><pre class="CodeMirror-line-like">x</pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>1</div></div><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>19</div></div><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>1</div></div><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>19</div></div><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>1</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-cursors" style=""><div class="CodeMirror-cursor" style="left: 4px; top: 0px; height: 19.6833px;">&nbsp;</div></div><div class="CodeMirror-code" role="presentation" style=""><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -46px;" aria-hidden="true"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 16px; width: 21px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation"><span cm-text="">​</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 33px; width: 1px; border-bottom: 0px solid transparent; top: 28px;"></div><div class="CodeMirror-gutters" style="height: 61px;"><div class="CodeMirror-gutter CodeMirror-lint-markers"></div><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 29px;"></div></div></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div></div>
+              </div>
+              <div id="querymessage"></div>
+
+              <div class="btn-toolbar" role="toolbar">
+                
+                <div class="btn-group me-2" role="group">
+                  <input type="button" value="Clear" id="clear" class="btn btn-secondary button sqlbutton">
+                                      <input type="button" value="Format" id="format" class="btn btn-secondary button sqlbutton">
+                                  </div>
+
+                <input type="button" value="Get auto-saved query" id="saved" class="btn btn-secondary button sqlbutton">
+              </div>
+
+              <div class="my-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="parameterized" id="parameterized">
+                  <label class="form-check-label" for="parameterized">
+                    Bind parameters                    <a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdocs.phpmyadmin.net%2Fen%2Flatest%2Ffaq.html%23faq6-40" target="documentation"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+                  </label>
+                </div>
+              </div>
+              <div class="mb-3" id="parametersDiv"></div>
+            </div>
+
+                      </div>
+        </div>
+
+              </div>
+      <div class="card-footer">
+        <div class="row row-cols-lg-auto g-3 align-items-center">
+          <div class="col-12">
+            <div class="input-group me-2">
+              <span class="input-group-text">Delimiter</span>
+              <label class="visually-hidden" for="id_sql_delimiter">Delimiter</label>
+              <input class="form-control" type="text" name="sql_delimiter" tabindex="131" size="3" value=";" id="id_sql_delimiter">
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="show_query" value="1" id="checkbox_show_query" tabindex="132">
+              <label class="form-check-label" for="checkbox_show_query">Show this query here again</label>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="retain_query_box" value="1" id="retain_query_box" tabindex="133">
+              <label class="form-check-label" for="retain_query_box">Retain query box</label>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" name="rollback_query" value="1" id="rollback_query" tabindex="134">
+              <label class="form-check-label" for="rollback_query">Rollback when finished</label>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="form-check">
+              <input type="hidden" name="fk_checks" value="0">
+              <input class="form-check-input" type="checkbox" name="fk_checks" id="fk_checks" value="1" checked="checked">
+              <label class="form-check-label" for="fk_checks">Enable foreign key checks</label>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <input class="btn btn-primary ms-1" type="submit" id="button_submit_query" name="SQL" tabindex="200" value="Go">
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+  <br id="togglequerybox_spacer" style="display: none;"><button class="btn btn-secondary" id="togglequerybox" style="">Hide query box</button><input type="hidden" name="SQL" value="Go" style="display: none;"><input type="hidden" id="ajax_request_hidden" name="ajax_request" value="true" style="display: none;"><input type="hidden" name="SQL" value="Go" style="display: none;"><input type="hidden" name="SQL" value="Go" style="display: none;"><input type="hidden" name="SQL" value="Go" style="display: none;"><input type="hidden" name="SQL" value="Go" style="display: none;"><input type="hidden" name="SQL" value="Go"></form>
+
+<div id="sqlqueryresultsouter"><div class="alert alert-danger" role="alert"><h1>Error</h1><p><strong>SQL query:</strong>  <a href="#" class="copyQueryBtn" data-text="INSERT INTO EmergencyContact
+VALUES('1', 'Mother', 'Ophelia' '6607289352'),
+('2', 'Mother', 'Ophelia' '6607289352'),
+('3', 'Mother', 'Gertrude' '6607289352'),
+('4', 'Mother', 'Josie' '6607289352'),
+('5', 'Mother', 'mother' '6607289352'),
+('6', 'Mother', 'bear' '6607289352'),
+('7', 'Mother', 'dearest' '6607289352'),
+('8', 'Mother', 'hare' '6607289352'),
+('9', 'Mother', 'Oedipus' '6607289352'),
+('10', 'Mother', 'Gaia' '6607289352'),
+('11', 'Mother', 'Nature' '6607289352'),
+('12', 'Mother', 'Lenny' '6607289352'),
+('13', 'Mother', 'Sally' '6607289352'),
+('14', 'Mother', 'Sandra' '6607289352'),
+('15', 'Mother', 'Gothel' '6607289352'),
+('16', 'Mother', 'Ailehpo' '6607289352'),
+('17', 'Mother', 'Kakaya' '6607289352'),
+('18', 'Mother', 'Puerta' '6607289352');">Copy</a>
+    </p>
+<p>
+<code class="sql"></code></p><pre><code class="sql">INSERT INTO EmergencyContact
+VALUES('1', 'Mother', 'Ophelia' '6607289352'),
+('2', 'Mother', 'Ophelia' '6607289352'),
+('3', 'Mother', 'Gertrude' '6607289352'),
+('4', 'Mother', 'Josie' '6607289352'),
+('5', 'Mother', 'mother' '6607289352'),
+('6', 'Mother', 'bear' '6607289352'),
+('7', 'Mother', 'dearest' '6607289352'),
+('8', 'Mother', 'hare' '6607289352'),
+('9', 'Mother', 'Oedipus' '6607289352'),
+('10', 'Mother', 'Gaia' '6607289352'),
+('11', 'Mother', 'Nature' '6607289352'),
+('12', 'Mother', 'Lenny' '6607289352'),
+('13', 'Mother', 'Sally' '6607289352'),
+('14', 'Mother', 'Sandra' '6607289352'),
+('15', 'Mother', 'Gothel' '6607289352'),
+('16', 'Mother', 'Ailehpo' '6607289352'),
+('17', 'Mother', 'Kakaya' '6607289352'),
+('18', 'Mother', 'Puerta' '6607289352');
+</code></pre>
+<p></p>
+<p>
+    <strong>MySQL said: </strong><a href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fdev.mysql.com%2Fdoc%2Frefman%2F8.0%2Fen%2Fserver-error-reference.html" target="mysql_doc"><img src="phpDatabasepartial_files/dot.gif" title="Documentation" alt="Documentation" class="icon ic_b_help"></a>
+</p>
+<code>#1136 - Column count doesn't match value count at row 1</code><br></div></div>
+
+<div class="modal fade" id="simulateDmlModal" tabindex="-1" aria-labelledby="simulateDmlModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="simulateDmlModalLabel">Simulate query</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+      <div id="selflink" class="d-print-none">
+      <a href="https://demo.phpmyadmin.net/master-config/index.php?route=%2Fdatabase%2Fsql&amp;db=RestaurantScheduler&amp;server=2" title="Open new phpMyAdmin window" target="_blank" rel="noopener noreferrer">
+                  <img src="phpDatabasepartial_files/dot.gif" title="Open new phpMyAdmin window" alt="Open new phpMyAdmin window" class="icon ic_window-new">
+              </a>
+    </div>
+  
+  
+
+  
+
+
+
+      <div id="pma_demo" class="d-print-none">
+      <div class="alert alert-primary" role="alert">
+  <img src="phpDatabasepartial_files/dot.gif" title="" alt="" class="icon ic_s_notice">         <a href="https://demo.phpmyadmin.net/master-config/index.php?route=/">phpMyAdmin Demo Server:</a>
+                                      Currently running Git revision <a target="_blank" rel="noopener noreferrer" href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fgithub.com%2Fphpmyadmin%2Fphpmyadmin%2Fcommit%2F2299a62e49c223b162929e6dad0477617001cb69">RELEASE_5_1_1-1729-g2299a62e49</a> from the <a target="_blank" rel="noopener noreferrer" href="https://demo.phpmyadmin.net/master-config/url.php?url=https%3A%2F%2Fgithub.com%2Fphpmyadmin%2Fphpmyadmin%2Ftree%2Fmaster">master</a> branch.
+              
+</div>
+    </div>
+  
+  <div id="pma_footer" class="d-print-none"><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-2718724-5', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</div>
+  
+
+</body></html>

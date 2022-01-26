@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="play" prefHeight="600.0" prefWidth="800.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="audiovisual.PlayerController">
+    <stylesheets>
+        <URL value="@player.css" />
+    </stylesheets>
+   <children>
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handlePlay" text="Play" />
+      <Button layoutX="68.0" layoutY="14.0" mnemonicParsing="false" onAction="#handlePause" text="Pause" />
+      <Button layoutX="133.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleStop" text="Stop" />
+      <Button layoutX="192.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleNext" text="Next" />
+      <Text fx:id="magText1" layoutX="484.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="magText2" layoutX="551.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="magText3" layoutX="624.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="magText4" layoutX="698.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Ellipse fx:id="ellipse1" fill="DODGERBLUE" layoutX="124.0" layoutY="300.0" radiusX="54.0" radiusY="54.0" stroke="BLACK" strokeType="INSIDE" />
+      <Ellipse fx:id="ellipse2" fill="#1fff68" layoutX="295.0" layoutY="300.0" radiusX="54.0" radiusY="54.0" stroke="BLACK" strokeType="INSIDE" />
+      <Ellipse fx:id="ellipse3" fill="#ffed1f" layoutX="469.0" layoutY="300.0" radiusX="54.0" radiusY="54.0" stroke="BLACK" strokeType="INSIDE" />
+      <Ellipse fx:id="ellipse4" fill="#ff231f" layoutX="652.0" layoutY="300.0" radiusX="54.0" radiusY="54.0" stroke="BLACK" strokeType="INSIDE" />
+      <Text fx:id="phaseText1" layoutX="484.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="phaseText2" layoutX="551.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="phaseText3" layoutX="624.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="phaseText4" layoutX="698.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <ImageView fx:id="c" fitHeight="150.0" fitWidth="200.0" layoutX="56.0" layoutY="394.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@c.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="o1" fitHeight="150.0" fitWidth="200.0" layoutX="243.0" layoutY="394.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@o.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="o2" fitHeight="150.0" fitWidth="200.0" layoutX="417.0" layoutY="394.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@o.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="l" fitHeight="150.0" fitWidth="200.0" layoutX="593.0" layoutY="394.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@l.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

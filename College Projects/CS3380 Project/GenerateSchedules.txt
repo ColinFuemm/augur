@@ -1,0 +1,32 @@
+*GenerateWorkers
+SELECT fname, lname
+FROM Employees E
+	INNER JOIN WorkProfiles W
+		ON E.ID = W.EMPID
+	INNER JOIN Roles R
+		ON R.EMPID = W.EMPID
+WHERE R.Waiter IS NOT 0 AND W.IsEnabled IS NOT 0 AND W.DesiredHours = ( SELECT max(W2.DesiredHours) from WorkProfiles W2 )
+SELECT fname, lname
+FROM Employees E
+	INNER JOIN WorkProfiles W
+		ON E.ID = W.EMPID
+	INNER JOIN Roles R
+		ON R.EMPID = W.EMPID
+WHERE R.Fry IS NOT 0 AND W.IsEnabled IS NOT 0 AND W.DesiredHours = ( SELECT max(W2.DesiredHours) from WorkProfiles W2 )
+SELECT fname, lname
+FROM Employees E
+	INNER JOIN WorkProfiles W
+		ON E.ID = W.EMPID
+	INNER JOIN Roles R
+		ON R.EMPID = W.EMPID
+WHERE R.Prep IS NOT 0 AND W.IsEnabled IS NOT 0 AND W.DesiredHours = ( SELECT max(W2.DesiredHours) from WorkProfiles W2 )
+SELECT fname, lname
+FROM Employees E
+	INNER JOIN WorkProfiles W
+		ON E.ID = W.EMPID
+WHERE W.IsEnabled = 1 AND W.DesiredHours = ( 
+	SELECT max(W2.DesiredHours) 
+	FROM WorkProfiles W2 
+		INNER JOIN Roles R
+			ON R.EMPID = W2.EMPID 
+	WHERE R.Cook = 1 )	

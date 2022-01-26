@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="CjffqwTimerStopwatchF21.jnlp">
+  <information>
+    <title>CjffqwTimerStopwatchF21</title>
+    <vendor>Colin</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="CjffqwTimerStopwatchF21.jar" size="23119" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="CjffqwTimerStopwatchF21" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="cjffqwtimerstopwatchf21.MyNewStopWatch"  name="CjffqwTimerStopwatchF21" />
+  <update check="always"/>
+</jnlp>

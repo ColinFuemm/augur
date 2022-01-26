@@ -1,0 +1,101 @@
+1. What is Python?
+	Python is an object-oriented high level coding language that focuses on readability.
+2. What is a variable?
+	A variable is an editable value stored within a reserved memory location
+3. What is a namespace?
+	A collection of all the variables and object names and information for a program.
+	It is stored in a key/value format of names/info, similar to dictionaries.
+4. What is the difference between list and tuple?
+	Lists are mutable and can be changed, while tuples are immutable after creation.
+5. How you can convert a number to a string?
+	Cast it to a string variable with string = str(number)
+6. What are the rules for local and global variables?
+	Local variables exist only within the scope that it was created, while global
+	variables are accessible and visible to the entire program, or "globally".
+7. Explain how to generate random numbers .
+	By importing 'random', you can generate them by using random.randrange(x,y) which
+	will create a random number between x and y.
+8. What is a dictionary?
+	A dictionary is a mutable, ordered collection that stores it's entries in key:value
+	pairs where each key leads to its respective value.
+9. What is the self keyword?
+	Within a class you may use the self keyword to refer to the class itself, so that
+	you can access its values and functions.
+10. What are loop interruption statements?
+	These statements affect the flow of a loop, like how a continue statement will skip
+	the rest of a loop and break will completely exit the loop.
+11. Explain List, Tuple, Set, and Dictionary and provide at least one instance where each of these collection types can be used.
+	List: collection that is ordered, changeable and allows duplicates. example: grocery list
+	Tuple: same as lists but unchangeable, useful for lists of rules, or something that shouldn't be editable.
+	Set: unordered, unchangeable and no duplicates. imagine a purse with loose items inside
+	Dictionary: ordered, changeable, and no duplicates. useful for easily locating items and their information.
+		examples include an actual dictionary, or a database that has to look up users.
+12. How is Exception Handling done?
+	Using Try/Catch blocks, you can have a block of code raise an error without crashing, and instead
+	you can define a series of steps to handle the particular error.
+13. What does ‘#’ symbol do?
+	Makes it and everything to it's right on that line a comment.
+14. Write the command to get all keys from a dictionary.
+	keylist = dictionary.keys()
+15. What is range()? Give an example to explain it.
+	range() creates a series of integers starting at 0 (default) and adding 1 (default until you
+	stopping at the number given in the function. You can provide additional parameters
+	to choose when it starts and how much it increments by.
+	x = range(6)
+	x == {0, 1, 2, 3, 4, 5}
+16. What does the // arithmetic operator do?
+	Divides normally but rounds down to the nearest whole number.
+17. What is a data type?
+	Data exists in different forms that are useful for different things. Strings can hold
+	words and phrases but you need numerical types for mathematical computation.
+18. What are the basic data types that are supported by the language?
+	str, int, float, complex, list, tuple, range, dict, set, frozenset, bool, bytes, bytesarray, and memoryview
+19. How do you check whether the two variables are pointing to the same object?
+	By using the is keyword e.g. "x is y"
+20. What is for-else and while-else?
+	the else clause following a while-block or for-block denotes a block of code that runs
+	IF the prior loop completed normally and did not 'break'
+21. What does immutable mean in the context of programming?
+	Unchangeable
+22. What is a list in Python?
+	A list is an ordered collection of items that is changeable and nonunique.
+23. What is a tuple in Python?
+	A tuple is an ordered collection of items that is unchangeable and nonunique.
+24. When do you choose a list over a tuple?
+	When you want to be able to edit the list (add and delete)
+25. How do you get the last value in a list or a tuple?
+	index [-1]
+26. What is Index Out Of Range Error?
+	When the program attempts to access  an index that is outside of the range of memory of the list
+	example: trying to access the 7th slot of a 6 item list
+27. Why should a program close a file when it is finished using it?
+	To keep the file pointer from continuing to use memory, as well as to ensure
+	that changes to the file are properly updated and finalized.
+28. Assume the names variable references a list of strings. Write code that determines whether 'Dale' is in the names list. If it is, display the message 'Hello Dale'.  Otherwise, display the message 'No Dale'.
+	for name in names:
+		if name == 'Dale':
+			print("Hello Dale")
+			break
+	else:
+		print("No Dale")
+29. Write a program that opens a specified text file then displays a list of all the unique words found in the file. Hint: Store each word as an element of a set.
+	set = {}
+	f = open(textfile)
+	Lines = f.readlines()
+	f.close()
+	for line in Lines:
+		set.add(line)
+	for item in set:
+		print(item)
+30. Write a program that reads the contents of a text file. The program should create a dictionary in which the keys are the individual words found in the file and the values are the number of times each word appears. For example, if the word "the" appears 128 times, the dictionary would contain an element with 'the' as the key and 128 as the value. The program should either display the frequency of each word or create a second file containing a list of each word and its frequency.
+	freq = {}
+	f = open(textfile)
+	Lines = f.readlines()
+	f.close()
+	for line in Lines:
+		if(line in freq):
+			freq[item] += 1
+		else:
+			freq[item] = 1
+	for key, value in freq.items():
+		print("%s: %d times" % (key, value))

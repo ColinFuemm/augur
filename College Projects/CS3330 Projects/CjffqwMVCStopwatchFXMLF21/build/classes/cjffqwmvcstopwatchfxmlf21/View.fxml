@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cjffqwmvcstopwatchfxmlf21.Controller">
+    <children>
+        <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
+      <ImageView fitHeight="300.0" fitWidth="300.0" layoutX="20.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@clockface.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="handImageView" fitHeight="300.0" fitWidth="300.0" layoutX="20.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@hand.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="20.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Colin's Timer Stopwatch" textAlignment="CENTER" underline="true" wrappingWidth="300.0">
+         <font>
+            <Font name="Comic Sans MS Bold" size="25.0" />
+         </font>
+      </Text>
+      <Text fx:id="timerLabel" layoutX="20.0" layoutY="435.0" strokeType="OUTSIDE" strokeWidth="0.0" text="--:--:--.--" textAlignment="CENTER" wrappingWidth="300.0">
+         <font>
+            <Font name="Comic Sans MS" size="25.0" />
+         </font>
+      </Text>
+      <Text fx:id="counter" layoutX="20.0" layoutY="499.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Timer : --:--:--.--" textAlignment="CENTER" wrappingWidth="300.0">
+         <font>
+            <Font name="Comic Sans MS" size="25.0" />
+         </font>
+      </Text>
+      <Text fx:id="lapLabel" layoutX="20.0" layoutY="567.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lap : --:--:--.--" textAlignment="CENTER" wrappingWidth="300.0">
+         <font>
+            <Font name="Comic Sans MS" size="25.0" />
+         </font>
+      </Text>
+      <Text fx:id="lapAvg" layoutX="27.0" layoutY="643.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Average Lap : --:--:--.--" textAlignment="CENTER" wrappingWidth="300.0">
+         <font>
+            <Font name="Comic Sans MS" size="25.0" />
+         </font>
+      </Text>
+      <Button fx:id="play" layoutX="20.0" layoutY="700.0" mnemonicParsing="false" onAction="#playAction" prefHeight="50.0" prefWidth="135.0" text="Start" />
+      <Button fx:id="record" layoutX="185.0" layoutY="700.0" mnemonicParsing="false" onAction="#recordAction" prefHeight="50.0" prefWidth="135.0" text="Record" />
+      <Pane fx:id="pane" layoutX="350.0" layoutY="25.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" prefWidth="420.0">
+         <children>
+            <LineChart fx:id="lineChart" prefHeight="350.0" prefWidth="500.0">
+              <xAxis>
+                <NumberAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </LineChart>
+         </children></Pane>
+      <Pane fx:id="pane2" layoutX="350.0" layoutY="425.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="300.0" prefWidth="420.0">
+         <children>
+            <AreaChart fx:id="areaChart" prefHeight="350.0" prefWidth="500.0">
+              <xAxis>
+                <NumberAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </AreaChart>
+         </children></Pane>
+    </children>
+</AnchorPane>
